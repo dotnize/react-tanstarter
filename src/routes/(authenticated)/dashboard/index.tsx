@@ -3,13 +3,10 @@ import { SignOutButton } from "~/components/sign-out-button";
 
 export const Route = createFileRoute("/(authenticated)/dashboard/")({
   component: DashboardIndex,
-  loader: ({ context }) => {
-    return { user: context.user };
-  },
 });
 
 function DashboardIndex() {
-  const { user } = Route.useLoaderData();
+  const { user } = Route.useRouteContext();
 
   return (
     <div className="flex flex-col items-center gap-1">
@@ -18,7 +15,7 @@ function DashboardIndex() {
         routes/(authenticated)dashboard/index.tsx
       </pre>
       <div className="mt-2 text-center text-xs sm:text-sm">
-        User data from route loader:
+        User data from route context:
         <pre className="max-w-screen overflow-x-auto px-2 text-start">
           {JSON.stringify(user, null, 2)}
         </pre>
