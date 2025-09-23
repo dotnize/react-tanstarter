@@ -2,8 +2,11 @@ import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
+import { config } from "dotenv";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+
+config();
 
 export default defineConfig({
   plugins: [
@@ -12,16 +15,10 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({
-      // https://github.com/TanStack/router/discussions/2863#discussioncomment-13713677
-      customViteReactPlugin: true,
-
-      tsr: {
+      router: {
         quoteStyle: "double",
         semicolons: true,
       },
-
-      // https://tanstack.com/start/latest/docs/framework/react/hosting#deployment
-      // target: "node-server",
     }),
     viteReact({
       // https://react.dev/learn/react-compiler

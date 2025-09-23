@@ -44,7 +44,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 ## Issue watchlist
 
 - [React Compiler docs](https://react.dev/learn/react-compiler), [Working Group](https://github.com/reactwg/react-compiler/discussions) - React Compiler is in RC.
-- [Start BETA Tracking](https://github.com/TanStack/router/discussions/2863) - TanStack Start is in beta and may still undergo major changes.
+- [Start BETA Tracking](https://github.com/TanStack/router/discussions/2863) - TanStack Start is in RC.
 - [Devtools Releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
 
 ## Goodies
