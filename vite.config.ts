@@ -1,8 +1,8 @@
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
-import { nitroV2Plugin as nitro } from "@tanstack/nitro-v2-vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
+import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
@@ -18,7 +18,7 @@ export default defineConfig({
         semicolons: true,
       },
     }),
-    // https://tanstack.com/start/latest/docs/framework/react/hosting#using-nitro-v2
+    // https://tanstack.com/start/latest/docs/framework/react/hosting#using-nitro-v3-beta
     nitro(),
     viteReact({
       // https://react.dev/learn/react-compiler
