@@ -55,7 +55,6 @@
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "babel-plugin-react-compiler": "^19.1.0-rc.3",
-    "dotenv": "^17.2.2",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
