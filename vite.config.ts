@@ -7,6 +7,7 @@ import { config } from "dotenv";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
+// dotenv to load server env variables in development
 config();
 
 export default defineConfig({
