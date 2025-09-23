@@ -22,6 +22,7 @@
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@t3-oss/env-core": "^0.13.8",
+    "@tanstack/nitro-v2-vite-plugin": "^1.132.0",
     "@tanstack/react-query": "^5.90.2",
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-router-ssr-query": "^1.132.0",
