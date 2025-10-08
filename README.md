@@ -45,15 +45,14 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/543674a1-e85c-4f61-b9fc-ad4701aa1f84/deploy-status)](https://tanstarter.nize.ph/)
 
-The [vite config](./vite.config.ts#L16-L17) is currently configured to deploy on Netlify.
+The [vite config](./vite.config.ts#L16-L17) is currently configured to deploy on Netlify, but can be easily switched to other providers.
 
-Please refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/hosting) for deploying to other platforms.
+Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/hosting) for deploying to other platforms.
 
 ## Issue watchlist
 
-- [React Compiler docs](https://react.dev/learn/react-compiler), [Working Group](https://github.com/reactwg/react-compiler/discussions) - React Compiler is in RC.
-- [Start BETA Tracking](https://github.com/TanStack/router/discussions/2863) - TanStack Start is in RC.
-- [Devtools Releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
+- [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
+- [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
 
 ## Goodies
 
