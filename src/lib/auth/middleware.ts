@@ -2,7 +2,7 @@ import { createMiddleware } from "@tanstack/react-start";
 import { getRequest, setResponseStatus } from "@tanstack/react-start/server";
 import { auth } from "~/lib/auth/auth";
 
-// https://tanstack.com/start/latest/docs/framework/react/middleware
+// https://tanstack.com/start/latest/docs/framework/react/guide/middleware
 // This is just an example middleware that you can modify and use in your server functions or routes.
 
 /**
