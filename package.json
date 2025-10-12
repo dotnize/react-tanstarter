@@ -43,7 +43,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@eslint-react/eslint-plugin": "^2.0.6",
+    "@eslint-react/eslint-plugin": "^2.1.0",
     "@eslint/js": "^9.37.0",
     "@tailwindcss/vite": "^4.1.14",
     "@tanstack/devtools-vite": "^0.3.6",
