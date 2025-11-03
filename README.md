@@ -5,6 +5,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- [Rolldown Vite](https://vite.dev/guide/rolldown.html)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
 
@@ -51,6 +52,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
+- [Rolldown Vite](https://vite.dev/guide/rolldown.html) - We're using the experimental Rolldown-powered version of Vite by default.
 - [Nitro v3 alpha](https://v3.nitro.build/docs/migration) - The template is configured with Nitro v3 alpha by default.
 
 ## Goodies
