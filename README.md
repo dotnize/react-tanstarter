@@ -5,7 +5,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
-- [Rolldown Vite](https://vite.dev/guide/rolldown.html) + [Nitro v3](https://v3.nitro.build/) (nightly)
+- [Rolldown Vite](https://vite.dev/guide/rolldown.html) + [Nitro v3](https://v3.nitro.build/) (alpha)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
 
@@ -44,7 +44,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Deploying to production
 
-The [vite config](./vite.config.ts#L16-L17) is currently configured to use [Nitro v3](https://v3.nitro.build/docs/nightly) (nightly) to deploy on Vercel, but can be easily switched to other providers.
+The [vite config](./vite.config.ts#L16-L17) is currently configured to use [Nitro v3](https://v3.nitro.build) (alpha) to deploy on Vercel, but can be easily switched to other providers.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
 
@@ -53,7 +53,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
 - [Rolldown Vite](https://vite.dev/guide/rolldown.html) - We're using the experimental Rolldown-powered version of Vite by default.
-- [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - The template is configured with Nitro v3 nightly by default.
+- [Nitro v3 alpha](https://v3.nitro.build/) - The template is configured with Nitro v3 alpha by default.
 
 ## Goodies
 
