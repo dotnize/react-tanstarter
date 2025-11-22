@@ -1,7 +1,7 @@
 import { createServerOnlyFn } from "@tanstack/react-start";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { reactStartCookies } from "better-auth/react-start";
+import { tanstackStartCookies } from "better-auth/tanstack-start";
 
 import { env } from "~/env/server";
 import { db } from "~/lib/db";
@@ -17,7 +17,7 @@ const getAuthConfig = createServerOnlyFn(() =>
     }),
 
     // https://www.better-auth.com/docs/integrations/tanstack#usage-tips
-    plugins: [reactStartCookies()],
+    plugins: [tanstackStartCookies()],
 
     // https://www.better-auth.com/docs/concepts/session-management#session-caching
     session: {
