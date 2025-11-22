@@ -1,6 +1,6 @@
 import { createServerOnlyFn } from "@tanstack/react-start";
-import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 
 import { env } from "~/env/server";
@@ -42,6 +42,11 @@ const getAuthConfig = createServerOnlyFn(() =>
     // https://www.better-auth.com/docs/authentication/email-password
     emailAndPassword: {
       enabled: true,
+    },
+
+    experimental: {
+      // https://www.better-auth.com/docs/adapters/drizzle#joins-experimental
+      joins: true,
     },
   }),
 );
