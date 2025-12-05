@@ -5,7 +5,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
-- [Rolldown Vite](https://vite.dev/guide/rolldown.html) + [Nitro v3](https://v3.nitro.build/) (alpha)
+- [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (alpha)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
 
