@@ -44,7 +44,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Deploying to production
 
-The [vite config](./vite.config.ts#L16-L17) is currently configured to use [Nitro v3](https://v3.nitro.build) (alpha) to deploy on Vercel, but can be easily switched to other providers.
+The [vite config](./vite.config.ts#L12-L13) is currently configured to use [Nitro v3](https://v3.nitro.build) (alpha) to deploy on Vercel, but can be easily switched to other providers.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
 
