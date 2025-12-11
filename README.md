@@ -52,7 +52,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
-- [Rolldown Vite](https://vite.dev/guide/rolldown.html) - We're using the experimental Rolldown-powered version of Vite by default.
+- [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
 - [Nitro v3 alpha](https://v3.nitro.build/) - The template is configured with Nitro v3 alpha by default.
 
 ## Goodies
