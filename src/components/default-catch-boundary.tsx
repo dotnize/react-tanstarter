@@ -30,20 +30,23 @@ export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {
           Try Again
         </Button>
         {isRoot ? (
-          <Button asChild variant="secondary">
-            <Link to="/">Home</Link>
+          <Button render={<Link to="/" />} variant="secondary">
+            Home
           </Button>
         ) : (
-          <Button asChild variant="secondary">
-            <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.back();
-              }}
-            >
-              Go Back
-            </Link>
+          <Button
+            render={
+              <Link
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.back();
+                }}
+              />
+            }
+            variant="secondary"
+          >
+            Go Back
           </Button>
         )}
       </div>

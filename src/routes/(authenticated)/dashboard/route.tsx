@@ -20,8 +20,8 @@ function DashboardLayout() {
           </pre>
         </div>
 
-        <Button type="button" asChild className="w-fit" size="lg">
-          <Link to="/">Back to home</Link>
+        <Button type="button" render={<Link to="/" />} className="w-fit" size="lg">
+          Back to home
         </Button>
       </div>
 
