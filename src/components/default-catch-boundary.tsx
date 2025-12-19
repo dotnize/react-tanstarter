@@ -30,7 +30,7 @@ export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {
           Try Again
         </Button>
         {isRoot ? (
-          <Button render={<Link to="/" />} variant="secondary">
+          <Button render={<Link to="/" />} variant="secondary" nativeButton={false}>
             Home
           </Button>
         ) : (
@@ -45,6 +45,7 @@ export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {
               />
             }
             variant="secondary"
+            nativeButton={false}
           >
             Go Back
           </Button>

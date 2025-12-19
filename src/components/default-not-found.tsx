@@ -9,7 +9,7 @@ export function DefaultNotFound() {
         <Button type="button" onClick={() => window.history.back()}>
           Go back
         </Button>
-        <Button render={<Link to="/" />} variant="secondary">
+        <Button render={<Link to="/" />} variant="secondary" nativeButton={false}>
           Home
         </Button>
       </p>

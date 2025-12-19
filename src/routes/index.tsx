@@ -65,10 +65,10 @@ function UserAction() {
     <div className="flex flex-col items-center gap-2">
       <p>Welcome back, {user.name}!</p>
       <Button
-        type="button"
         render={<Link to="/dashboard" />}
         className="mb-2 w-fit"
         size="lg"
+        nativeButton={false}
       >
         Go to Dashboard
       </Button>
@@ -84,7 +84,12 @@ function UserAction() {
   ) : (
     <div className="flex flex-col items-center gap-2">
       <p>You are not signed in.</p>
-      <Button type="button" render={<Link to="/login" />} className="w-fit" size="lg">
+      <Button
+        render={<Link to="/login" />}
+        className="w-fit"
+        size="lg"
+        nativeButton={false}
+      >
         Log in
       </Button>
     </div>
