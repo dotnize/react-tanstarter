@@ -5,6 +5,7 @@ import { tanstackStartCookies } from "better-auth/tanstack-start";
 
 import { env } from "~/env/server";
 import { db } from "~/lib/db";
+import * as schema from "~/lib/db/schema";
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
@@ -14,6 +15,7 @@ const getAuthConfig = createServerOnlyFn(() =>
     },
     database: drizzleAdapter(db, {
       provider: "pg",
+      schema,
     }),
 
     // https://www.better-auth.com/docs/integrations/tanstack#usage-tips
