@@ -28,7 +28,7 @@ export const Route = createRootRouteWithContext<{
 
     // typically we don't need the user immediately in landing pages,
     // so we're only prefetching here and not awaiting.
-    // for protected routes with loader data, see /(authenticated)/route.tsx
+    // for protected routes with loader data, see /_auth/route.tsx
   },
   head: () => ({
     meta: [
