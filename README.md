@@ -1,5 +1,8 @@
 # [React TanStarter](https://github.com/dotnize/react-tanstarter)
 
+> [!TIP]
+> We're working on a monorepo version of this template with Turborepo and Cloudflare. See the [`next` branch](https://github.com/dotnize/react-tanstarter/tree/next) if you want to try it out.
+
 A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
 
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
