@@ -1,5 +1,5 @@
 {
-  "name": "tanstarter",
+  "name": "mugnavo-app",
   "private": true,
   "scripts": {
     "build": "turbo run build",

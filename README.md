@@ -1,15 +1,16 @@
-# TanStarter
+# Mugnavo Stack
 
 > [!WARNING]
-> This is still a work in progress. See the [issue watchlist](#issue-watchlist) below.
->
-> TODO:
+> This is still a work in progress.
 >
 > - [ ] Replace ESLint + Prettier with Oxlint + Oxfmt (blocked by https://github.com/oxc-project/oxc/issues/14557)
 > - [ ] Drizzle Relations v2 support in Better Auth (https://github.com/better-auth/better-auth/pull/6913)
 > - [ ] `AGENTS.md`
+> - [ ] Setup tests
+>
+> Also see the [issue watchlist](#issue-watchlist) below.
 
-A monorepo template for 🏝️ TanStack Start and Cloudflare.
+A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated from the best of the TypeScript ecosystem.
 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
@@ -134,12 +135,12 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 
 #### Utilities
 
-- [`/auth/src/tanstack/middleware.ts`](./packages/auth/src/tanstack/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
-- [`/web/src/components/theme-toggle.tsx`](./apps/web/src/components/theme-toggle.tsx), [`/ui/lib/theme-provider.tsx`](./packages/ui/lib/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7#issuecomment-3141530412))
+- [`/auth/src/tanstack/middleware.ts`](./packages/auth/src/tanstack/middleware.ts) - Sample middleware for forcing authentication on server functions.
+- [`/web/src/components/theme-toggle.tsx`](./apps/web/src/components/theme-toggle.tsx), [`/ui/lib/theme-provider.tsx`](./packages/ui/lib/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode.
 
 ## Third‑party integrations
 
-The template is kept minimal by default, but is compatible with many third‑party integrations. Here are a few I use in my projects:
+The template is kept minimal by default, but is compatible with many third‑party integrations. Here are a few we use in our projects:
 
 - [Cloudflare R2](https://developers.cloudflare.com/r2/) - file storage
 - [PostHog](https://posthog.com/) - analytics & observability
