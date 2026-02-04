@@ -146,6 +146,7 @@ The template is kept minimal by default, but is compatible with many third‑par
 - [PostHog](https://posthog.com/) - analytics & observability
 - [Resend](https://resend.com/) - email
 - [Polar](https://polar.sh/) - billing
+- ... and many more!
 
 ## License
 
@@ -153,6 +154,7 @@ The template is kept minimal by default, but is compatible with many third‑par
 
 ## Ecosystem
 
+- [Cloudflare MCP](https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/) - Cloudflare's official MCP servers, including one for their docs.
 - [TanStack MCP](https://tanstack.com/cli/latest/docs/mcp/connecting) - The official MCP server for searching the latest docs for TanStack libraries.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
 - [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [shoogle.dev](https://shoogle.dev/) - Component directories for shadcn/ui.
