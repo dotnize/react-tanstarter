@@ -6,7 +6,7 @@
 > - [ ] Replace ESLint + Prettier with Oxlint + Oxfmt (blocked by https://github.com/oxc-project/oxc/issues/14557)
 > - [ ] Drizzle Relations v2 support in Better Auth (https://github.com/better-auth/better-auth/pull/6913)
 > - [ ] `AGENTS.md`
-> - [ ] Setup tests
+> - [ ] Setup tests?
 >
 > Also see the [issue watchlist](#issue-watchlist) below.
 
@@ -19,7 +19,8 @@ A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated fro
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 - [Drizzle ORM v1](https://orm.drizzle.team/) (beta) + Cloudflare D1
 - [Better Auth](https://www.better-auth.com/)
-- ~~[Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)~~ + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) - WIP
+- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
+<!-- - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) -->
 
 ```sh
 ├── apps
