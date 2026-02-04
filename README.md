@@ -20,8 +20,6 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 - [Better Auth](https://www.better-auth.com/)
 - ~~[Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)~~ + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) - WIP
 
-### Structure
-
 ```sh
 ├── apps
 │    ├── web                    # TanStack Start web app
