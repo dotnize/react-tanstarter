@@ -1,0 +1,9 @@
+{
+  "name": "@repo/tsconfig",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,22 @@
+node_modules
+
+# Ignore lockfiles we don't use
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+# bun.lock
+
+.DS_Store
+.cache
+.env
+
+.data
+.vercel
+.output
+.wrangler
+.netlify
+dist
+/build/
+/api/
+/server/build
+/public/build
