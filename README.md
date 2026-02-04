@@ -50,10 +50,19 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 
 ## Getting Started
 
-1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository with gitpick, then install dependencies:
+<!-- 1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository with gitpick, then install dependencies:
 
    ```sh
    npx gitpick dotnize/react-tanstarter myproject
+   cd myproject
+
+   pnpm install
+   ``` -->
+
+1. Clone this repository with gitpick, then install dependencies:
+
+   ```sh
+   npx gitpick dotnize/react-tanstarter/tree/next myproject
    cd myproject
 
    pnpm install
