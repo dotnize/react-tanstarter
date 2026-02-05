@@ -16,6 +16,7 @@
     "wrangler": "wrangler"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "catalog:",
     "@remixicon/react": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",

@@ -12,6 +12,8 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
+import "@fontsource-variable/inter";
+
 import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
 import appCss from "~/styles.css?url";
 
