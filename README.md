@@ -1,14 +1,11 @@
 # Mugnavo Stack
 
 > [!WARNING]
-> This is still a work in progress.
+> This is still a work in progress. Currently blocked by:
 >
-> - [ ] Replace ESLint + Prettier with Oxlint + Oxfmt (blocked by https://github.com/oxc-project/oxc/issues/14557)
 > - [ ] Drizzle Relations v2 support in Better Auth (https://github.com/better-auth/better-auth/pull/6913)
-> - [ ] `AGENTS.md`
-> - [ ] Setup tests?
 >
-> Also see the [issue watchlist](#issue-watchlist) below.
+> Also see the [issue watchlist](#issue-watchlist) below and open issues with the [`branch:next`](https://github.com/dotnize/react-tanstarter/issues?q=is%3Aissue%20state%3Aopen%20label%3Abranch%3Anext) label.
 
 A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated from the best of the TypeScript ecosystem.
 
