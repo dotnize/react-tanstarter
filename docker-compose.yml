@@ -1,14 +1,46 @@
+# Docker Compose configuration for development
+# For production, use: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
+
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_BASE_URL=http://localhost:3000
+      - DATABASE_URL=postgresql://user:password@db:5432/tanstarter
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET:-}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID:-}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET:-}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
   db:
     image: postgres:alpine
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - postgres_data_tanstarter:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=tanstarter
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d tanstarter"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data_tanstarter:

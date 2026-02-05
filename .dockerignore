@@ -1,0 +1,49 @@
+# Dependencies
+node_modules
+
+# Build output
+.output
+dist
+build
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (use docker-compose environment instead)
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache
+.tanstack
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test
+coverage
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
