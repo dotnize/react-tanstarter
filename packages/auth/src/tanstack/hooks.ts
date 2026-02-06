@@ -1,4 +1,5 @@
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+
 import { authQueryOptions } from "./queries";
 
 export function useAuth() {

@@ -1,4 +1,12 @@
+import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
 import type { QueryClient } from "@tanstack/react-query";
+
+import { Toaster } from "@repo/ui/components/sonner";
+import { ThemeProvider } from "@repo/ui/lib/theme-provider";
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import "@fontsource-variable/inter";
+// import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
+import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import {
   createRootRouteWithContext,
   HeadContent,
@@ -6,19 +14,9 @@ import {
   ScriptOnce,
   Scripts,
 } from "@tanstack/react-router";
-
-import { TanStackDevtools } from "@tanstack/react-devtools";
-// import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
-import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-import "@fontsource-variable/inter";
-
-import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
 import appCss from "~/styles.css?url";
-
-import { Toaster } from "@repo/ui/components/sonner";
-import { ThemeProvider } from "@repo/ui/lib/theme-provider";
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;

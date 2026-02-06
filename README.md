@@ -16,8 +16,7 @@ A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated fro
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 - [Drizzle ORM v1](https://orm.drizzle.team/) (beta) + Cloudflare D1
 - [Better Auth](https://www.better-auth.com/)
-- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
-<!-- - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) -->
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
 
 ```sh
 ├── apps
@@ -27,7 +26,6 @@ A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated fro
 │    ├── db                     # Drizzle ORM + Drizzle Kit + Cloudflare D1
 │    └── ui                     # shadcn/ui primitives & utils
 ├── tooling
-│    └── eslint-config          # Shared ESLint configuration
 │    └── tsconfig               # Shared TypeScript configuration
 ├── turbo.json
 ├── LICENSE
@@ -124,8 +122,7 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 
 - **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./packages/auth/src/auth.ts).
 - **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
-- **`format`**, **`lint`**, **`check-types`** - Run Prettier, ESLint, and check TypeScript types respectively.
-  - **`check`** - Run all three above. (e.g. `pnpm check`)
+- **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both via `pnpm check`.
 - **`deps`** - Selectively upgrade dependencies via taze.
 
 > [!TIP]

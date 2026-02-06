@@ -1,9 +1,9 @@
-import * as React from "react";
-
 import { cn } from "@repo/ui/lib/utils";
+import * as React from "react";
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
+    // oxlint-disable-next-line jsx_a11y/label-has-associated-control
     <label
       data-slot="label"
       className={cn(

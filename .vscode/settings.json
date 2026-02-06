@@ -24,8 +24,11 @@
   // use LF line endings
   "files.eol": "\n",
 
-  // set prettier as default formatter for json, ts, tsx, js, jsx, html, css
+  // type-aware linting
+  "oxc.typeAware": true,
+
+  // set oxfmt as default formatter for json, ts, tsx, js, jsx, html, css
   "[json][jsonc][typescript][typescriptreact][javascript][javascriptreact][html][css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }

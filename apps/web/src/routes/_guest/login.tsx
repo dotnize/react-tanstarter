@@ -6,6 +6,7 @@ import { Label } from "@repo/ui/components/label";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { toast } from "sonner";
+
 import { SignInSocialButton } from "~/components/sign-in-social-button";
 
 export const Route = createFileRoute("/_guest/login")({
@@ -54,7 +55,7 @@ function LoginForm() {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
-            <a href="#" className="flex flex-col items-center gap-2 font-medium">
+            <a href="https://mugnavo.com" className="flex flex-col items-center gap-2 font-medium">
               <div className="flex h-8 w-8 items-center justify-center rounded-md">
                 <RiGalleryView className="size-6" />
               </div>
@@ -90,10 +91,8 @@ function LoginForm() {
               {isPending ? "Logging in..." : "Login"}
             </Button>
           </div>
-          <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-            <span className="bg-background text-muted-foreground relative z-10 px-2">
-              Or
-            </span>
+          <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
+            <span className="relative z-10 bg-background px-2 text-muted-foreground">Or</span>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <SignInSocialButton

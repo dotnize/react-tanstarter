@@ -1,19 +1,17 @@
 {
   "name": "@repo/ui",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
-  "scripts": {
-    "ui": "pnpm dlx shadcn@latest",
-    "lint": "eslint .",
-    "check-types": "tsc --noEmit"
-  },
+  "type": "module",
   "exports": {
     ".": "./index.js",
     "./*": "./*.ts",
     "./styles/base.css": "./styles/base.css",
     "./lib/theme-provider": "./lib/theme-provider.tsx",
     "./components/*": "./components/*.tsx"
+  },
+  "scripts": {
+    "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
@@ -30,11 +28,9 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "eslint": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
