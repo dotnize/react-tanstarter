@@ -1,0 +1,7 @@
+@import "@repo/ui/styles/base.css";
+
+@source "./";
+
+@theme inline {
+  --font-sans: "Inter Variable", sans-serif;
+}
