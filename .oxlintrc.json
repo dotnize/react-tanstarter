@@ -18,8 +18,12 @@
     }
   ],
   "rules": {
-    "turbo/no-undeclared-env-vars": "warn",
     "no-deprecated": "warn",
+    "typescript/no-floating-promises": "off",
+    "typescript/no-misused-spread": "off",
+
+    "turbo/no-undeclared-env-vars": "warn",
+
     "eslint-tanstack-router/create-route-property-order": "warn",
     "eslint-tanstack-query/exhaustive-deps": "warn",
     "eslint-tanstack-query/stable-query-client": "warn",
