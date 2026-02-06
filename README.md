@@ -122,7 +122,7 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 
 - **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./packages/auth/src/auth.ts).
 - **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
-- **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both with `pnpm check`.
+- **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both via `pnpm check`.
 - **`deps`** - Selectively upgrade dependencies via taze.
 
 > [!TIP]
