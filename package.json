@@ -6,10 +6,11 @@
     "dev": "turbo run dev --parallel",
     "dev:web": "turbo run dev --filter=@repo/web",
     "deploy:web": "pnpm --filter=@repo/web run deploy",
-    "lint": "turbo run lint",
-    "format": "prettier --write .",
-    "check-types": "turbo run check-types",
-    "check": "pnpm format && turbo run lint && turbo run check-types",
+    "lint": "oxlint --type-aware --type-check",
+    "lint:fix": "oxlint --type-aware --type-check --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "check": "turbo run quality",
     "prepare": "husky",
     "deps": "pnpm dlx taze@latest -Ilwr",
     "deps:major": "pnpm dlx taze@latest major -Ilwr",
@@ -26,20 +27,23 @@
     "auth:generate": "pnpm --filter=@repo/db run auth:generate",
     "skills": "pnpm dlx skills@latest"
   },
-  "lint-staged": {
-    "*": "prettier --ignore-unknown --write"
-  },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "catalog:",
+    "@tanstack/eslint-plugin-router": "catalog:",
+    "eslint-plugin-turbo": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
-    "prettier": "catalog:",
-    "prettier-plugin-organize-imports": "catalog:",
-    "prettier-plugin-tailwindcss": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
     "tsx": "catalog:",
     "turbo": "catalog:"
   },
-  "packageManager": "pnpm@10.28.2",
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  },
   "engines": {
     "node": ">=24"
-  }
+  },
+  "packageManager": "pnpm@10.28.2"
 }

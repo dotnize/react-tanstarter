@@ -1,11 +1,7 @@
 import type { Config } from "drizzle-kit";
 
-const {
-  SERVER_LOCAL_DB_PATH,
-  SERVER_CF_DB_ID,
-  SERVER_CF_D1_TOKEN,
-  SERVER_CF_ACCOUNT_ID,
-} = process.env;
+const { SERVER_LOCAL_DB_PATH, SERVER_CF_DB_ID, SERVER_CF_D1_TOKEN, SERVER_CF_ACCOUNT_ID } =
+  process.env;
 
 export default {
   out: "../../apps/web/migrations",

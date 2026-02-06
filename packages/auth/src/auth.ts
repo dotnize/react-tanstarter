@@ -1,10 +1,9 @@
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
+import { getDb } from "@repo/db";
+import * as schema from "@repo/db/schema";
 import { createServerOnlyFn } from "@tanstack/react-start";
 import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
-
-import { getDb } from "@repo/db";
-import * as schema from "@repo/db/schema";
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({

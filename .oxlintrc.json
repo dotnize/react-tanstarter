@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "react-perf", "jsx-a11y"],
+  "env": {
+    "builtin": true,
+    "node": true,
+    "browser": true
+  },
+  "jsPlugins": [
+    "eslint-plugin-turbo",
+    {
+      "name": "eslint-tanstack-router",
+      "specifier": "@tanstack/eslint-plugin-router"
+    },
+    {
+      "name": "eslint-tanstack-query",
+      "specifier": "@tanstack/eslint-plugin-query"
+    }
+  ],
+  "rules": {
+    "turbo/no-undeclared-env-vars": "warn",
+    "no-deprecated": "warn",
+    "eslint-tanstack-router/create-route-property-order": "warn",
+    "eslint-tanstack-query/exhaustive-deps": "warn",
+    "eslint-tanstack-query/stable-query-client": "warn",
+    "eslint-tanstack-query/no-rest-destructuring": "warn",
+    "eslint-tanstack-query/no-unstable-deps": "warn",
+    "eslint-tanstack-query/infinite-query-property-order": "warn",
+    "eslint-tanstack-query/no-void-query-fn": "warn",
+    "eslint-tanstack-query/mutation-property-order": "warn"
+  },
+  "ignorePatterns": [
+    "dist",
+    ".wrangler",
+    ".vercel",
+    ".netlify",
+    ".output",
+    "build/",
+    "worker-configuration.d.ts",
+    "scripts/"
+  ]
+}

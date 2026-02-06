@@ -16,12 +16,20 @@
       ],
       "env": ["SERVER_*", "VITE_*"]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
+    "//#quality": {
+      "dependsOn": ["//#lint", "//#format"]
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+    "//#quality:fix": {
+      "dependsOn": ["//#lint:fix", "//#format"]
     },
+    "//#lint": {},
+    "//#lint:fix": {
+      "cache": false
+    },
+    "//#format": {
+      "cache": false
+    },
+    "//#format:check": {},
     "dev": {
       "inputs": ["$TURBO_DEFAULT$", ".env"],
       "cache": false,
