@@ -1,10 +1,10 @@
+import { SignOutButton } from "@/components/sign-out-button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { authQueryOptions } from "@/lib/auth/queries";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Suspense } from "react";
-import { SignOutButton } from "~/components/sign-out-button";
-import { ThemeToggle } from "~/components/theme-toggle";
-import { Button } from "~/components/ui/button";
-import { authQueryOptions } from "~/lib/auth/queries";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
