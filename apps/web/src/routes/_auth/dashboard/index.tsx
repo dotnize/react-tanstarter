@@ -8,7 +8,8 @@ export const Route = createFileRoute("/_auth/dashboard/")({
 
 function DashboardIndex() {
   const { user } = Route.useRouteContext();
-  // you can also use useAuthSuspense() or useAuth() from @repo/auth/tanstack/hooks
+  // we can also use the useAuth() or useAuthSuspense() hooks here from @repo/auth/tanstack/hooks
+  // this is just to demo that route context is available in route components, in addition to loaders/beforeLoad
 
   return (
     <div className="flex flex-col items-center gap-1">
