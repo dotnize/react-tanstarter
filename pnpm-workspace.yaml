@@ -10,19 +10,19 @@ catalog:
   '@fontsource-variable/inter': ^5.2.8
   '@remixicon/react': ^4.9.0
   '@tailwindcss/vite': ^4.1.18
-  '@tanstack/devtools-vite': ^0.5.0
+  '@tanstack/devtools-vite': ^0.5.1
   '@tanstack/eslint-plugin-query': ^5.91.4
   '@tanstack/eslint-plugin-router': ^1.155.0
-  '@tanstack/react-devtools': ^0.9.4
+  '@tanstack/react-devtools': ^0.9.5
   '@tanstack/react-form-devtools': ^0.2.13
   '@tanstack/react-form-start': ^1.28.0
   '@tanstack/react-query': ^5.90.20
   '@tanstack/react-query-devtools': ^5.91.3
-  '@tanstack/react-router': ^1.158.1
-  '@tanstack/react-router-devtools': ^1.158.1
-  '@tanstack/react-router-ssr-query': ^1.158.1
-  '@tanstack/react-start': ^1.158.3
-  '@types/node': ^24.10.11
+  '@tanstack/react-router': ^1.158.4
+  '@tanstack/react-router-devtools': ^1.158.4
+  '@tanstack/react-router-ssr-query': ^1.158.4
+  '@tanstack/react-start': ^1.159.0
+  '@types/node': ^24.10.12
   '@types/react': ^19.2.13
   '@types/react-dom': ^19.2.3
   '@vitejs/plugin-react': ^5.1.3
