@@ -26,6 +26,7 @@
     "date-fns": "catalog:",
     "drizzle-orm": "catalog:",
     "motion": "catalog:",
+    "nanoid": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "sonner": "catalog:",

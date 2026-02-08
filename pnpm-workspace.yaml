@@ -21,7 +21,7 @@ catalog:
   '@tanstack/react-router': ^1.158.4
   '@tanstack/react-router-devtools': ^1.158.4
   '@tanstack/react-router-ssr-query': ^1.158.4
-  '@tanstack/react-start': ^1.159.0
+  '@tanstack/react-start': ^1.159.2
   '@types/node': ^24.10.12
   '@types/react': ^19.2.13
   '@types/react-dom': ^19.2.3
@@ -38,6 +38,7 @@ catalog:
   husky: ^9.1.7
   lint-staged: ^16.2.7
   motion: ^12.33.0
+  nanoid: ^5.1.6
   oxfmt: ^0.28.0
   oxlint: ^1.43.0
   oxlint-tsgolint: ^0.11.5
