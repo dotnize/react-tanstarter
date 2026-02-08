@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_data_tanstarter:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=user
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=tanstarter
 
