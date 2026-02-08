@@ -36,7 +36,7 @@ function HomePage() {
           >
             🏝️ <span className="group-hover:underline">TanStack Start</span>
           </a>{" "}
-          on Cloudflare
+          on Cloudflare.
         </p>
         <div className="flex items-center gap-3">
           <a

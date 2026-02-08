@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./index.js",
     "./*": "./*.ts",
     "./styles/base.css": "./styles/base.css",
     "./lib/theme-provider": "./lib/theme-provider.tsx",
