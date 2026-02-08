@@ -7,6 +7,8 @@ export const Route = createFileRoute("/_auth/dashboard/")({
 
 function DashboardIndex() {
   const { user } = Route.useRouteContext();
+  // we can also use the useAuth() or useAuthSuspense() hooks here from ~/lib/auth/hooks
+  // this is just to demo that route context is available in route components, in addition to loaders/beforeLoad
 
   return (
     <div className="flex flex-col items-center gap-1">

@@ -1,8 +1,7 @@
 import { SignOutButton } from "@/components/sign-out-button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { authQueryOptions } from "@/lib/auth/queries";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useAuthSuspense } from "@/lib/auth/hooks";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Suspense } from "react";
 
@@ -59,7 +58,7 @@ function HomePage() {
 }
 
 function UserAction() {
-  const { data: user } = useSuspenseQuery(authQueryOptions());
+  const { user } = useAuthSuspense();
 
   return user ? (
     <div className="flex flex-col items-center gap-2">
