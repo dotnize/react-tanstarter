@@ -8,6 +8,6 @@ export function useAuth() {
 }
 
 export function useAuthSuspense() {
-  const { data: user, isPending } = useSuspenseQuery(authQueryOptions());
-  return { user, isPending };
+  const { data: user } = useSuspenseQuery(authQueryOptions());
+  return { user };
 }
