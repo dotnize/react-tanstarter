@@ -30,6 +30,10 @@ const getAuthConfig = createServerOnlyFn(() =>
 
     // https://www.better-auth.com/docs/concepts/oauth
     socialProviders: {
+      github: {
+        clientId: process.env.SERVER_GITHUB_CLIENT_ID!,
+        clientSecret: process.env.SERVER_GITHUB_CLIENT_SECRET!,
+      },
       google: {
         clientId: process.env.SERVER_GOOGLE_CLIENT_ID!,
         clientSecret: process.env.SERVER_GOOGLE_CLIENT_SECRET!,
