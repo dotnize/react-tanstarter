@@ -18,10 +18,10 @@ catalog:
   '@tanstack/react-form-start': ^1.28.0
   '@tanstack/react-query': ^5.90.20
   '@tanstack/react-query-devtools': ^5.91.3
-  '@tanstack/react-router': ^1.158.4
-  '@tanstack/react-router-devtools': ^1.158.4
-  '@tanstack/react-router-ssr-query': ^1.158.4
-  '@tanstack/react-start': ^1.159.2
+  '@tanstack/react-router': ^1.159.4
+  '@tanstack/react-router-devtools': ^1.159.4
+  '@tanstack/react-router-ssr-query': ^1.159.4
+  '@tanstack/react-start': ^1.159.4
   '@types/node': ^24.10.12
   '@types/react': ^19.2.13
   '@types/react-dom': ^19.2.3
