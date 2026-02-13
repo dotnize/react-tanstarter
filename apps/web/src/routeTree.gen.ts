@@ -14,8 +14,8 @@ import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuestSignupRouteImport } from './routes/_guest/signup'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
-import { Route as AuthDashboardRouteRouteImport } from './routes/_auth/dashboard/route'
-import { Route as AuthDashboardIndexRouteImport } from './routes/_auth/dashboard/index'
+import { Route as AuthAppRouteRouteImport } from './routes/_auth/app/route'
+import { Route as AuthAppIndexRouteImport } from './routes/_auth/app/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const GuestRouteRoute = GuestRouteRouteImport.update({
@@ -41,15 +41,15 @@ const GuestLoginRoute = GuestLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => GuestRouteRoute,
 } as any)
-const AuthDashboardRouteRoute = AuthDashboardRouteRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const AuthAppRouteRoute = AuthAppRouteRouteImport.update({
+  id: '/app',
+  path: '/app',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthDashboardIndexRoute = AuthDashboardIndexRouteImport.update({
+const AuthAppIndexRoute = AuthAppIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AuthDashboardRouteRoute,
+  getParentRoute: () => AuthAppRouteRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
@@ -59,51 +59,45 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/dashboard': typeof AuthDashboardRouteRouteWithChildren
+  '/app': typeof AuthAppRouteRouteWithChildren
   '/login': typeof GuestLoginRoute
   '/signup': typeof GuestSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/dashboard/': typeof AuthDashboardIndexRoute
+  '/app/': typeof AuthAppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof GuestLoginRoute
   '/signup': typeof GuestSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/dashboard': typeof AuthDashboardIndexRoute
+  '/app': typeof AuthAppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_auth': typeof AuthRouteRouteWithChildren
   '/_guest': typeof GuestRouteRouteWithChildren
-  '/_auth/dashboard': typeof AuthDashboardRouteRouteWithChildren
+  '/_auth/app': typeof AuthAppRouteRouteWithChildren
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/signup': typeof GuestSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/_auth/dashboard/': typeof AuthDashboardIndexRoute
+  '/_auth/app/': typeof AuthAppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/dashboard'
-    | '/login'
-    | '/signup'
-    | '/api/auth/$'
-    | '/dashboard/'
+  fullPaths: '/' | '/app' | '/login' | '/signup' | '/api/auth/$' | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/signup' | '/api/auth/$' | '/dashboard'
+  to: '/' | '/login' | '/signup' | '/api/auth/$' | '/app'
   id:
     | '__root__'
     | '/'
     | '/_auth'
     | '/_guest'
-    | '/_auth/dashboard'
+    | '/_auth/app'
     | '/_guest/login'
     | '/_guest/signup'
     | '/api/auth/$'
-    | '/_auth/dashboard/'
+    | '/_auth/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -150,19 +144,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestLoginRouteImport
       parentRoute: typeof GuestRouteRoute
     }
-    '/_auth/dashboard': {
-      id: '/_auth/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthDashboardRouteRouteImport
+    '/_auth/app': {
+      id: '/_auth/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AuthAppRouteRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_auth/dashboard/': {
-      id: '/_auth/dashboard/'
+    '/_auth/app/': {
+      id: '/_auth/app/'
       path: '/'
-      fullPath: '/dashboard/'
-      preLoaderRoute: typeof AuthDashboardIndexRouteImport
-      parentRoute: typeof AuthDashboardRouteRoute
+      fullPath: '/app/'
+      preLoaderRoute: typeof AuthAppIndexRouteImport
+      parentRoute: typeof AuthAppRouteRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -174,23 +168,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AuthDashboardRouteRouteChildren {
-  AuthDashboardIndexRoute: typeof AuthDashboardIndexRoute
+interface AuthAppRouteRouteChildren {
+  AuthAppIndexRoute: typeof AuthAppIndexRoute
 }
 
-const AuthDashboardRouteRouteChildren: AuthDashboardRouteRouteChildren = {
-  AuthDashboardIndexRoute: AuthDashboardIndexRoute,
+const AuthAppRouteRouteChildren: AuthAppRouteRouteChildren = {
+  AuthAppIndexRoute: AuthAppIndexRoute,
 }
 
-const AuthDashboardRouteRouteWithChildren =
-  AuthDashboardRouteRoute._addFileChildren(AuthDashboardRouteRouteChildren)
+const AuthAppRouteRouteWithChildren = AuthAppRouteRoute._addFileChildren(
+  AuthAppRouteRouteChildren,
+)
 
 interface AuthRouteRouteChildren {
-  AuthDashboardRouteRoute: typeof AuthDashboardRouteRouteWithChildren
+  AuthAppRouteRoute: typeof AuthAppRouteRouteWithChildren
 }
 
 const AuthRouteRouteChildren: AuthRouteRouteChildren = {
-  AuthDashboardRouteRoute: AuthDashboardRouteRouteWithChildren,
+  AuthAppRouteRoute: AuthAppRouteRouteWithChildren,
 }
 
 const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(

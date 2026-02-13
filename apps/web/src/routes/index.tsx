@@ -62,13 +62,8 @@ function UserAction() {
   return user ? (
     <div className="flex flex-col items-center gap-2">
       <p>Welcome back, {user.name}!</p>
-      <Button
-        render={<Link to="/dashboard" />}
-        className="mb-2 w-fit"
-        size="lg"
-        nativeButton={false}
-      >
-        Go to Dashboard
+      <Button render={<Link to="/app" />} className="mb-2 w-fit" size="lg" nativeButton={false}>
+        Go to App
       </Button>
       <div className="text-center text-xs sm:text-sm">
         Session user:
