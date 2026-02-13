@@ -1,5 +1,5 @@
 {
   "extends": "@repo/tsconfig/base.json",
-  "include": ["**/*.ts", "../../apps/web/worker-configuration.d.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }

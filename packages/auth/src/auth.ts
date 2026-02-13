@@ -1,5 +1,5 @@
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
-import { getDb } from "@repo/db";
+import { db } from "@repo/db";
 import * as schema from "@repo/db/schema";
 import { createServerOnlyFn } from "@tanstack/react-start";
 import { betterAuth } from "better-auth/minimal";
@@ -12,8 +12,8 @@ const getAuthConfig = createServerOnlyFn(() =>
     telemetry: {
       enabled: false,
     },
-    database: drizzleAdapter(getDb(), {
-      provider: "sqlite",
+    database: drizzleAdapter(db, {
+      provider: "pg",
       schema,
     }),
 

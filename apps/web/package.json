@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "deploy": "vite build && wrangler deploy",
     "preview": "vite preview",
-    "ui": "pnpm dlx shadcn@latest",
-    "cf-typegen": "wrangler types",
-    "postinstall": "wrangler types",
-    "wrangler": "wrangler"
+    "start": "node .output/server/index.mjs",
+    "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
     "@fontsource-variable/inter": "catalog:",
@@ -27,13 +24,13 @@
     "drizzle-orm": "catalog:",
     "motion": "catalog:",
     "nanoid": "catalog:",
+    "nitro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "sonner": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "catalog:",
     "@repo/tsconfig": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/devtools-vite": "catalog:",
@@ -48,7 +45,6 @@
     "babel-plugin-react-compiler": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
-    "wrangler": "catalog:"
+    "vite": "catalog:"
   }
 }

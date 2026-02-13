@@ -14,7 +14,7 @@ function HomePage() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">
       <div className="flex flex-col items-center gap-4">
-        <h1 className="text-3xl font-bold sm:text-4xl">Mugnavo Stack</h1>
+        <h1 className="text-3xl font-bold sm:text-4xl">TanStarter</h1>
         <div className="flex items-center gap-2 text-sm text-foreground/80 max-sm:flex-col">
           This is an unprotected page:
           <pre className="rounded-md border bg-card p-1 text-card-foreground">routes/index.tsx</pre>
@@ -36,17 +36,17 @@ function HomePage() {
           >
             🏝️ <span className="group-hover:underline">TanStack Start</span>
           </a>{" "}
-          on Cloudflare.
+          with Turborepo.
         </p>
         <div className="flex items-center gap-3">
           <a
             className="text-foreground/80 underline hover:text-foreground max-sm:text-sm"
-            href="https://github.com/mugnavo/stack"
+            href="https://github.com/dotnize/react-tanstarter"
             target="_blank"
             title="Template repository on GitHub"
             rel="noreferrer noopener"
           >
-            mugnavo/stack
+            dotnize/react-tanstarter
           </a>
 
           <ThemeToggle />

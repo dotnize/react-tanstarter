@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
 import type { QueryClient } from "@tanstack/react-query";
 
@@ -37,12 +38,12 @@ export const Route = createRootRouteWithContext<{
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "Mugnavo Stack",
+        title: "TanStarter",
       },
       {
         name: "description",
         content:
-          "A minimal monorepo starter for 🏝️ TanStack Start on Cloudflare, curated from the best of the TypeScript ecosystem.",
+          "A minimal monorepo starter for 🏝️ TanStack Start, curated from the best of the TypeScript ecosystem.",
       },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
