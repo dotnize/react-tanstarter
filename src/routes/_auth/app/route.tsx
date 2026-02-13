@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_auth/dashboard")({
-  component: DashboardLayout,
+export const Route = createFileRoute("/_auth/app")({
+  component: AppLayout,
 });
 
-function DashboardLayout() {
+function AppLayout() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">
       <div className="flex flex-col items-center gap-2">
-        <h1 className="text-3xl font-bold sm:text-4xl">Dashboard Layout</h1>
+        <h1 className="text-3xl font-bold sm:text-4xl">App Layout</h1>
         <pre className="bg-card text-card-foreground mb-4 rounded-md border p-1 text-xs">
-          routes/_auth/dashboard/route.tsx
+          routes/_auth/app/route.tsx
         </pre>
         <div className="text-foreground/80 mb-4 flex flex-col items-center gap-2 text-sm">
           This is a protected layout from the _auth pathless layout route:
