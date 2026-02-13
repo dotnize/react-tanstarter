@@ -7,7 +7,7 @@
 >
 > Also see the [issue watchlist](#issue-watchlist) below and open issues with the [`branch:next`](https://github.com/dotnize/react-tanstarter/issues?q=is%3Aissue%20state%3Aopen%20label%3Abranch%3Anext) label.
 
-A minimal monorepo starter for 🏝️ TanStack Start, curated from the best of the TypeScript ecosystem.
+A minimal monorepo starter for 🏝️ TanStack Start.
 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
