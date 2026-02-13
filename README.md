@@ -1,7 +1,7 @@
 # [React TanStarter](https://github.com/dotnize/react-tanstarter)
 
 > [!TIP]
-> We're working on a monorepo version of this template with Turborepo and Cloudflare. See the [`next` branch](https://github.com/dotnize/react-tanstarter/tree/next) if you want to try it out. ([#45](https://github.com/dotnize/react-tanstarter/pull/45))
+> We're working on a monorepo version of this template with Turborepo. See the [`next` branch](https://github.com/dotnize/react-tanstarter/tree/next) if you want to try it out. ([#45](https://github.com/dotnize/react-tanstarter/pull/45))
 
 A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
 
@@ -84,4 +84,4 @@ Code in this template is public domain via [Unlicense](./LICENSE). Feel free to 
 
 - [TanStack CLI & MCP](https://tanstack.com/cli/latest) - The official CLI, MCP server, and AI toolkit for TanStack. Create and customize TanStack Start apps, search docs, integrate with AI agents, and more.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
-- [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [shoogle.dev](https://shoogle.dev/) - Component directories & registries for shadcn/ui.
+- [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [MCP](https://ui.shadcn.com/docs/mcp), [shoogle.dev](https://shoogle.dev/) - Component directories & registries for shadcn/ui.
