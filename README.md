@@ -1,7 +1,7 @@
 # TanStarter
 
 > [!WARNING]
-> This is still a work in progress. Currently blocked by:
+> This is still a work in progress. Mainly blocked by:
 >
 > - [ ] Drizzle Relations v2 support in Better Auth (https://github.com/better-auth/better-auth/pull/6913)
 >
@@ -12,9 +12,9 @@ A minimal monorepo starter for 🏝️ TanStack Start, curated from the best of 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest) + [Form](https://tanstack.com/form/latest)
-- [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/)
-- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
-- [Drizzle ORM v1](https://orm.drizzle.team/) (beta) + Postgres
+- [Vite 8](https://vite.dev/) + [Nitro v3](https://v3.nitro.build/)
+- [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-maia)
+- [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
 - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
 
@@ -93,7 +93,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 - [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
 - [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - This template is configured with Nitro v3 nightly by default.
 - [Drizzle ORM v1 Beta](https://orm.drizzle.team/docs/relations-v1-v2) - Drizzle ORM v1 is in beta with relations v2.
-- [Better Auth beta](https://github.com/better-auth/better-auth/pull/6913) - We're using a separate branch of Better Auth that supports Drizzle relations v2.
+- [Better Auth beta](https://github.com/better-auth/better-auth/pull/6913) - We're using a separate branch of Better Auth v1.5 that supports Drizzle relations v2.
 
 ## Goodies
 
