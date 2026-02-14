@@ -82,7 +82,7 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 
 ## Deploying to production
 
-The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured to use [Nitro v3](https://v3.nitro.build) which can be deployed to many [providers](https://v3.nitro.build/deploy) like Vercel or Node, but can be easily switched to other platforms.
+The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured to use Nitro v3 to deploy on Vercel, but supports many other [deployment presets](https://v3.nitro.build/deploy) like Node.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
 
