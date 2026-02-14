@@ -5,7 +5,7 @@
 >
 > - [ ] Drizzle Relations v2 support in Better Auth (https://github.com/better-auth/better-auth/pull/6913)
 >
-> Also see the [issue watchlist](#issue-watchlist) below and open issues with the [`branch:next`](https://github.com/dotnize/react-tanstarter/issues?q=is%3Aissue%20state%3Aopen%20label%3Abranch%3Anext) label.
+> Also see the [issue watchlist](#issue-watchlist) below.
 
 A minimal monorepo starter for 🏝️ TanStack Start.
 
@@ -99,15 +99,15 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 
 #### Scripts
 
-We use **pnpm** by default, but you can modify these scripts in [package.json](./package.json) to use your preferred package manager.
+This template is configured for **[pnpm](https://pnpm.io/)** by default. Check the root [package.json](./package.json) and each workspace package's `package.json` for the full list of available scripts.
 
 - **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./packages/auth/src/auth.ts).
 - **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
 - **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both via `pnpm check`.
 - **`deps`** - Selectively upgrade dependencies via taze.
 
-> [!TIP]
-> Check the root [package.json](./package.json) and each workspace package's respective `package.json` to see the full list of available scripts.
+> [!NOTE]
+> To switch to another package manager (e.g., bun or npm), update the commands in your `package.json` files, [`dev.sh`](./dev.sh), and [`.husky/pre-commit`](./.husky/pre-commit). You'll also need to replace or remove [`pnpm-workspace.yaml`](./pnpm-workspace.yaml), which uses pnpm [catalogs](https://pnpm.io/catalogs). Bun and Yarn have their own equivalents, but the file formats may differ.
 
 #### Utilities
 
