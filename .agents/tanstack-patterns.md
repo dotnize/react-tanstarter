@@ -32,7 +32,7 @@ Instead of directly calling server functions in loaders, prefer wrapping in TanS
 
 ```typescript
 loader: async ({ context }) => {
-  // Best/Preferred: For read/data-fetching server functions, wrap in TanStack Query for better caching/reusability
+  // Best/Preferred: For read/data-fetching server functions, wrap in TanStack Query
   const todos = await context.queryClient.ensureQueryData(todosQueryOptions());
   return { todos };
 };
