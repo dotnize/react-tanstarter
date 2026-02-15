@@ -25,7 +25,7 @@ export const Route = createRootRouteWithContext<{
 }>()({
   // Typically we don't need the user immediately in landing pages.
   // For protected routes with loader data, see /_auth/route.tsx
-  // beforeLoad: () => {
+  // beforeLoad: ({ context }) => {
   //   context.queryClient.prefetchQuery(authQueryOptions());
   // },
   head: () => ({
