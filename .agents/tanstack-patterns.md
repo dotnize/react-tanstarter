@@ -8,43 +8,41 @@
 - Guest-only routes live under `src/routes/_guest/**`, enforced by `beforeLoad` in the `_guest` layout (`src/routes/_guest/route.tsx`).
 - Auth-specific route guard behavior and middleware rules are documented in `.agents/auth.md`.
 
-## loaderDeps Must Be Specific
+## Data Fetching
 
-Only include properties actually used in the loader. This ensures proper cache invalidation.
-
-```typescript
-// Bad: includes everything
-loaderDeps: ({ search }) => search,
-loader: async ({ deps }) => {
-  await fetchData({ page: deps.page, pageSize: deps.pageSize })
-}
-
-// Good: only what's used
-loaderDeps: ({ search }) => ({
-  page: search.page,
-  pageSize: search.pageSize,
-}),
-loader: async ({ deps }) => {
-  await fetchData({ page: deps.page, pageSize: deps.pageSize })
-}
-```
-
-## Loaders Are Isomorphic
-
-Loaders run on both server and client. They cannot directly access server-only APIs.
+Route loaders are isomorphic; they run on both server and client. They cannot directly access server-only APIs.
 
 ```typescript
 // Bad: direct server API access
 loader: async () => {
-  const data = await fs.readFile("data.json");
-  return { data };
+  const todos = await fs.readFile("todos.json");
+  return { todos };
+};
+```
+
+```typescript
+// Good (minimal/valid): call a server function from the loader
+loader: async () => {
+  const todos = await $getTodos({ data: {} });
+  return { todos };
+};
+```
+
+Instead of directly calling server functions in loaders, prefer wrapping in TanStack Query for better caching and reusability.
+
+```typescript
+loader: async ({ context }) => {
+  // Best/Preferred: For read/data-fetching server functions, wrap in TanStack Query
+  const todos = await context.queryClient.ensureQueryData(todosQueryOptions());
+  return { todos };
 };
 
-// Good: call a server function
-loader: async () => {
-  const data = await $serverFn({ data: { id: "123" } });
-  return { data };
-};
+// lib/todos/queries.ts
+export const todosQueryOptions = () =>
+  queryOptions({
+    queryKey: ["todos"],
+    queryFn: ({ signal }) => $getTodos({ signal }), // TanStack Query calls the server function
+  });
 ```
 
 ## Environment Shaking
