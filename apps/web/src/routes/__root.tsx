@@ -1,10 +1,9 @@
 /// <reference types="vite/client" />
 import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
-import type { QueryClient } from "@tanstack/react-query";
-
 import { Toaster } from "@repo/ui/components/sonner";
 import { ThemeProvider } from "@repo/ui/lib/theme-provider";
 import { TanStackDevtools } from "@tanstack/react-devtools";
+import type { QueryClient } from "@tanstack/react-query";
 import "@fontsource-variable/inter";
 // import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
