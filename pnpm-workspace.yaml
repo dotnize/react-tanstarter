@@ -12,7 +12,7 @@ catalog:
   '@tanstack/devtools-vite': ^0.5.1
   '@tanstack/eslint-plugin-query': ^5.91.4
   '@tanstack/eslint-plugin-router': ^1.155.0
-  '@tanstack/react-devtools': ^0.9.5
+  '@tanstack/react-devtools': ^0.9.6
   '@tanstack/react-form-devtools': ^0.2.16
   '@tanstack/react-form-start': ^1.28.3
   '@tanstack/react-query': ^5.90.21
@@ -36,7 +36,7 @@ catalog:
   eslint-plugin-turbo: ^2.8.9
   husky: ^9.1.7
   lint-staged: ^16.2.7
-  motion: ^12.34.0
+  motion: ^12.34.1
   nanoid: ^5.1.6
   nitro: npm:nitro-nightly@latest
   oxfmt: ^0.33.0
