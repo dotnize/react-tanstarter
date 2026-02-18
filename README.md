@@ -69,7 +69,7 @@ A minimal monorepo starter for 🏝️ TanStack Start.
    pnpm dev
    ```
 
-   The development server should now be running at [http://localhost:5173](http://localhost:5173).
+   The development server should now be running at [http://localhost:3000](http://localhost:3000).
 
 > [!TIP]
 > If you want to run a local Postgres instance via Docker Compose with the dev server, you can use the [dev.sh](./dev.sh) script:
