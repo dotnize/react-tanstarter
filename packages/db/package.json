@@ -21,5 +21,8 @@
     "@types/node": "catalog:",
     "drizzle-kit": "catalog:",
     "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@tanstack/react-start": "catalog:"
   }
 }
