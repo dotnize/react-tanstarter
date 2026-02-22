@@ -1,0 +1,19 @@
+{
+  "servers": {,
+    "better-auth": {
+      "url": "https://mcp.inkeep.com/better-auth/mcp"
+    },
+    "react-mcp": {
+      "command": "node",
+      "args": ["C:/Users/kalip/OneDrive/Desktop/react-mcp/index.js"]
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "tanstack": {
+      "command": "npx",
+      "args": ["@tanstack/cli", "mcp"]
+    }
+  }
+}
