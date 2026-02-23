@@ -21,6 +21,8 @@
     "skills": "pnpm dlx skills@latest"
   },
   "devDependencies": {
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
     "@tanstack/eslint-plugin-query": "catalog:",
     "@tanstack/eslint-plugin-router": "catalog:",
     "eslint-plugin-turbo": "catalog:",

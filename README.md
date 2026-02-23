@@ -16,7 +16,7 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 - [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-maia)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
-- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
 
 ```sh
 ├── apps
@@ -107,7 +107,7 @@ This template is configured for **[pnpm](https://pnpm.io/)** by default. Check t
 - **`deps`** - Selectively upgrade dependencies via taze.
 
 > [!NOTE]
-> To switch to another package manager (e.g., bun or npm), update the commands in your `package.json` files, [`dev.sh`](./dev.sh), and [`.husky/pre-commit`](./.husky/pre-commit). You'll also need to replace or remove [`pnpm-workspace.yaml`](./pnpm-workspace.yaml), which uses pnpm [catalogs](https://pnpm.io/catalogs). Bun and Yarn have their own equivalents, but the file formats may differ.
+> To switch to another package manager (e.g., bun or npm), update the commands in your `package.json` files, [`dev.sh`](./dev.sh), and git hooks in [`.husky/`](./.husky/). You'll also need to replace or remove [`pnpm-workspace.yaml`](./pnpm-workspace.yaml), which uses pnpm [catalogs](https://pnpm.io/catalogs). Bun and Yarn have their own equivalents, but the file formats may differ.
 
 #### Utilities
 

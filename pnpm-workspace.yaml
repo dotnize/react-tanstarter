@@ -6,21 +6,23 @@ packages:
 catalog:
   '@base-ui/react': ^1.2.0
   '@better-auth/drizzle-adapter': https://pkg.pr.new/better-auth/better-auth/@better-auth/drizzle-adapter@6913
+  '@commitlint/cli': ^20.4.2
+  '@commitlint/config-conventional': ^20.4.2
   '@fontsource-variable/inter': ^5.2.8
   '@remixicon/react': ^4.9.0
   '@tailwindcss/vite': ^4.2.0
   '@tanstack/devtools-vite': ^0.5.1
   '@tanstack/eslint-plugin-query': ^5.91.4
-  '@tanstack/eslint-plugin-router': ^1.161.2
+  '@tanstack/eslint-plugin-router': ^1.161.4
   '@tanstack/react-devtools': ^0.9.6
   '@tanstack/react-form-devtools': ^0.2.16
   '@tanstack/react-form-start': ^1.28.3
   '@tanstack/react-query': ^5.90.21
   '@tanstack/react-query-devtools': ^5.91.3
-  '@tanstack/react-router': ^1.161.3
-  '@tanstack/react-router-devtools': ^1.161.3
-  '@tanstack/react-router-ssr-query': ^1.161.3
-  '@tanstack/react-start': ^1.161.3
+  '@tanstack/react-router': ^1.162.4
+  '@tanstack/react-router-devtools': ^1.162.4
+  '@tanstack/react-router-ssr-query': ^1.162.4
+  '@tanstack/react-start': ^1.162.4
   '@types/node': ^24.10.13
   '@types/react': ^19.2.14
   '@types/react-dom': ^19.2.3
@@ -36,12 +38,12 @@ catalog:
   eslint-plugin-turbo: ^2.8.10
   husky: ^9.1.7
   lint-staged: ^16.2.7
-  motion: ^12.34.2
+  motion: ^12.34.3
   nanoid: ^5.1.6
   nitro: npm:nitro-nightly@latest
-  oxfmt: ^0.34.0
-  oxlint: ^1.49.0
-  oxlint-tsgolint: ^0.14.1
+  oxfmt: ^0.35.0
+  oxlint: ^1.50.0
+  oxlint-tsgolint: ^0.14.2
   postgres: ^3.4.8
   react: ^19.2.4
   react-dom: ^19.2.4
