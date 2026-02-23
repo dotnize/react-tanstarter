@@ -14,3 +14,7 @@ Don't build after every change. If lint & type checks pass; assume changes work.
 ## Testing
 
 No testing framework is currently set up. Prefer lint checks for now.
+
+## Formatting
+
+Prettier is configured for consistent code formatting via `pnpm format`. It runs automatically on commit via Husky pre-commit hooks, so manual formatting is not necessary.
