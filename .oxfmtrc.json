@@ -6,12 +6,13 @@
   "singleQuote": false,
   "endOfLine": "lf",
   "trailingComma": "all",
-  "experimentalSortImports": {},
-  "experimentalTailwindcss": {
+  "sortImports": {},
+  "sortTailwindcss": {
     "stylesheet": "./packages/ui/styles/base.css",
     "attributes": ["class", "className"],
     "functions": ["clsx", "cn", "cva", "tw"]
   },
+  "sortPackageJson": true,
   "ignorePatterns": [
     "pnpm-lock.yaml",
     "package-lock.json",
