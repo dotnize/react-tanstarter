@@ -31,7 +31,6 @@
     "oxfmt": "catalog:",
     "oxlint": "catalog:",
     "oxlint-tsgolint": "catalog:",
-    "tsx": "catalog:",
     "turbo": "catalog:"
   },
   "lint-staged": {
