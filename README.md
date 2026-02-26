@@ -47,7 +47,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Deploying to production
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/66acdee6-8e42-436f-9943-a67cad998f63/deploy-status)](https://app.netlify.com/projects/react-tanstarter/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/66acdee6-8e42-436f-9943-a67cad998f63/deploy-status)](https://app.netlify.com/projects/mugnavo-tanstarter/deploys)
 
 The [vite config](./vite.config.ts#L12-L13) is currently configured to use Nitro v3 to deploy on Netlify, but supports many other [deployment presets](https://v3.nitro.build/deploy) like Vercel and Node.
 
