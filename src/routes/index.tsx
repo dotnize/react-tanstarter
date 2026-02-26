@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">
       <div className="flex flex-col items-center gap-4">
-        <h1 className="text-3xl font-bold sm:text-4xl">React TanStarter</h1>
+        <h1 className="text-3xl font-bold sm:text-4xl">TanStarter</h1>
         <div className="text-foreground/80 flex items-center gap-2 text-sm max-sm:flex-col">
           This is an unprotected page:
           <pre className="bg-card text-card-foreground rounded-md border p-1">
@@ -42,12 +42,12 @@ function HomePage() {
         <div className="flex items-center gap-3">
           <a
             className="text-foreground/80 hover:text-foreground underline max-sm:text-sm"
-            href="https://github.com/dotnize/react-tanstarter"
+            href="https://github.com/mugnavo/tanstarter"
             target="_blank"
             title="Template repository on GitHub"
             rel="noreferrer noopener"
           >
-            dotnize/react-tanstarter
+            mugnavo/tanstarter
           </a>
 
           <ThemeToggle />

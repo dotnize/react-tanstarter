@@ -1,9 +1,9 @@
-# [React TanStarter](https://github.com/dotnize/react-tanstarter)
+# [TanStarter](https://github.com/mugnavo/tanstarter)
 
 > [!TIP]
-> We're working on a monorepo version of this template with Turborepo. See the [`next` branch](https://github.com/dotnize/react-tanstarter/tree/next) if you want to try it out. ([#45](https://github.com/dotnize/react-tanstarter/pull/45))
+> We're working on a monorepo version of this template with Turborepo. See the [`next` branch](https://github.com/mugnavo/tanstarter/tree/next) if you want to try it out. ([#45](https://github.com/mugnavo/tanstarter/pull/45))
 
-A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
+A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.mugnavo.com/)
 
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
@@ -14,10 +14,10 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Getting Started
 
-1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository with gitpick:
+1. [Use this template](https://github.com/new?template_name=tanstarter&template_owner=mugnavo) or clone this repository with gitpick:
 
    ```bash
-   npx gitpick dotnize/react-tanstarter myapp
+   npx gitpick mugnavo/tanstarter myapp
    cd myapp
    ```
 
@@ -47,7 +47,11 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Deploying to production
 
-The [vite config](./vite.config.ts#L12-L13) is currently configured to use [Nitro v3](https://v3.nitro.build) (nightly) to deploy on Vercel, but can be easily switched to other providers.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/66acdee6-8e42-436f-9943-a67cad998f63/deploy-status)](https://app.netlify.com/projects/react-tanstarter/deploys)
+
+The [vite config](./vite.config.ts#L12-L13) is currently configured to use Nitro v3 to deploy on Netlify, but supports many other [deployment presets](https://v3.nitro.build/deploy) like Vercel and Node.
+
+While Nitro provides a great multi-provider default, the official [@netlify/vite-plugin-tanstack-start](https://www.npmjs.com/package/@netlify/vite-plugin-tanstack-start) is also available for Netlify deployments.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
 
@@ -73,8 +77,8 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 
 #### Utilities
 
-- [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
-- [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7#issuecomment-3141530412))
+- [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/mugnavo/tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/mugnavo/tanstarter/issues/17#issuecomment-2853482062))
+- [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/mugnavo/tanstarter/issues/7#issuecomment-3141530412))
 
 ## License
 
