@@ -41,12 +41,12 @@ function HomePage() {
         <div className="flex items-center gap-3">
           <a
             className="text-foreground/80 underline hover:text-foreground max-sm:text-sm"
-            href="https://github.com/dotnize/react-tanstarter"
+            href="https://github.com/mugnavo/tanstarter"
             target="_blank"
             title="Template repository on GitHub"
             rel="noreferrer noopener"
           >
-            dotnize/react-tanstarter
+            mugnavo/tanstarter
           </a>
 
           <ThemeToggle />

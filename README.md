@@ -48,7 +48,7 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 1. Clone this repository with gitpick, then install dependencies:
 
    ```sh
-   npx gitpick dotnize/react-tanstarter/tree/next myproject
+   npx gitpick mugnavo/tanstarter/tree/next myproject
    cd myproject
 
    pnpm install
@@ -82,7 +82,9 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 
 ## Deploying to production
 
-The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured to use Nitro v3 to deploy on Vercel, but supports many other [deployment presets](https://v3.nitro.build/deploy) like Node.
+The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured to use Nitro v3 to deploy on Netlify, but supports many other [deployment presets](https://v3.nitro.build/deploy) like Vercel and Node.
+
+While Nitro provides a great multi-provider default, the official [@netlify/vite-plugin-tanstack-start](https://www.npmjs.com/package/@netlify/vite-plugin-tanstack-start) is also available for Netlify deployments.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
 
