@@ -25,6 +25,7 @@
     "@commitlint/config-conventional": "catalog:",
     "@tanstack/eslint-plugin-query": "catalog:",
     "@tanstack/eslint-plugin-router": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-turbo": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
