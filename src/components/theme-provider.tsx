@@ -33,9 +33,8 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () =>
-      (typeof window !== "undefined"
-        ? (localStorage.getItem(storageKey) as Theme)
-        : null) || defaultTheme,
+      (typeof window !== "undefined" ? (localStorage.getItem(storageKey) as Theme) : null) ||
+      defaultTheme,
   );
 
   const handleMediaQuery = useCallback(
@@ -106,8 +105,7 @@ export function ThemeProvider({
 export const useTheme = () => {
   const context = use(ThemeProviderContext);
 
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
+  if (context === undefined) throw new Error("useTheme must be used within a ThemeProvider");
 
   return context;
 };

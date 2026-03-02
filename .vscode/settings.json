@@ -22,17 +22,22 @@
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts",
     "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
-    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig, .gitattributes, bun.lock"
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .editorconfig, .gitattributes, oxfmt*, oxlint*, .oxfmt*, .oxlint*, bun.lock"
   },
-
-  // always choose typescript from node_modules
-  "typescript.tsdk": "./node_modules/typescript/lib",
 
   // use LF line endings
   "files.eol": "\n",
 
-  // set prettier as default formatter for json, ts, tsx, js, jsx, html, css
+  // disable prettier & eslint for oxlint + oxfmt
+  "prettier.enable": false,
+  "eslint.enable": false,
+  "oxc.enable": true,
+
+  // type-aware linting
+  "oxc.typeAware": true,
+
+  // set oxfmt as default formatter for json, ts, tsx, js, jsx, html, css
   "[json][jsonc][typescript][typescriptreact][javascript][javascriptreact][html][css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }

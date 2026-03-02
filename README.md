@@ -11,6 +11,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 - [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (nightly)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
 
 ## Getting Started
 
@@ -71,8 +72,7 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 - **`auth:generate`** - Regenerate the [auth db schema](./src/lib/db/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./src/lib/auth/auth.ts).
 - **`db`** - Run [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) commands. (e.g. `pnpm db generate`, `pnpm db studio`)
 - **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
-- **`format`**, **`lint`**, **`check-types`** - Run Prettier, ESLint, and check TypeScript types respectively.
-  - **`check`** - Run all three above. (e.g. `pnpm check`)
+- **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both via `pnpm check`.
 - **`deps`** - Selectively upgrade dependencies via taze.
 
 #### Utilities
