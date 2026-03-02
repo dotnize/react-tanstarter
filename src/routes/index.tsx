@@ -1,9 +1,10 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Suspense } from "react";
+
 import { SignOutButton } from "@/components/sign-out-button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { useAuthSuspense } from "@/lib/auth/hooks";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Suspense } from "react";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -14,11 +15,9 @@ function HomePage() {
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-3xl font-bold sm:text-4xl">TanStarter</h1>
-        <div className="text-foreground/80 flex items-center gap-2 text-sm max-sm:flex-col">
+        <div className="flex items-center gap-2 text-sm text-foreground/80 max-sm:flex-col">
           This is an unprotected page:
-          <pre className="bg-card text-card-foreground rounded-md border p-1">
-            routes/index.tsx
-          </pre>
+          <pre className="rounded-md border bg-card p-1 text-card-foreground">routes/index.tsx</pre>
         </div>
       </div>
 
@@ -30,7 +29,7 @@ function HomePage() {
         <p className="text-foreground/80 max-sm:text-xs">
           A minimal starter template for{" "}
           <a
-            className="text-foreground group"
+            className="group text-foreground"
             href="https://tanstack.com/start/latest"
             target="_blank"
             rel="noreferrer noopener"
@@ -41,7 +40,7 @@ function HomePage() {
         </p>
         <div className="flex items-center gap-3">
           <a
-            className="text-foreground/80 hover:text-foreground underline max-sm:text-sm"
+            className="text-foreground/80 underline hover:text-foreground max-sm:text-sm"
             href="https://github.com/mugnavo/tanstarter"
             target="_blank"
             title="Template repository on GitHub"
@@ -63,12 +62,7 @@ function UserAction() {
   return user ? (
     <div className="flex flex-col items-center gap-2">
       <p>Welcome back, {user.name}!</p>
-      <Button
-        render={<Link to="/app" />}
-        className="mb-2 w-fit"
-        size="lg"
-        nativeButton={false}
-      >
+      <Button render={<Link to="/app" />} className="mb-2 w-fit" size="lg" nativeButton={false}>
         Go to App
       </Button>
       <div className="text-center text-xs sm:text-sm">
@@ -83,12 +77,7 @@ function UserAction() {
   ) : (
     <div className="flex flex-col items-center gap-2">
       <p>You are not signed in.</p>
-      <Button
-        render={<Link to="/login" />}
-        className="w-fit"
-        size="lg"
-        nativeButton={false}
-      >
+      <Button render={<Link to="/login" />} className="w-fit" size="lg" nativeButton={false}>
         Log in
       </Button>
     </div>

@@ -1,5 +1,6 @@
-import { SignOutButton } from "@/components/sign-out-button";
 import { createFileRoute } from "@tanstack/react-router";
+
+import { SignOutButton } from "@/components/sign-out-button";
 
 export const Route = createFileRoute("/_auth/app/")({
   component: AppIndex,
@@ -13,7 +14,7 @@ function AppIndex() {
   return (
     <div className="flex flex-col items-center gap-1">
       App index page
-      <pre className="bg-card text-card-foreground rounded-md border p-1 text-xs">
+      <pre className="rounded-md border bg-card p-1 text-xs text-card-foreground">
         routes/_auth/app/index.tsx
       </pre>
       <div className="mt-2 text-center text-xs sm:text-sm">
