@@ -16,7 +16,7 @@
     "db": "pnpm --filter=@repo/db run db",
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui",
-    "auth:secret": "pnpm dlx @better-auth/cli@latest secret",
+    "auth:secret": "pnpm dlx auth@latest secret",
     "auth:generate": "pnpm --filter=@repo/db run auth:generate",
     "skills": "pnpm dlx skills@latest"
   },
