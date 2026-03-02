@@ -1,6 +1,6 @@
+import { RiGalleryView, RiLoader4Line } from "@remixicon/react";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { GalleryVerticalEnd, LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
 
 import { SignInSocialButton } from "@/components/sign-in-social-button";
@@ -57,7 +57,7 @@ function LoginForm() {
           <div className="flex flex-col items-center gap-2">
             <a href="https://mugnavo.com" className="flex flex-col items-center gap-2 font-medium">
               <div className="flex h-8 w-8 items-center justify-center rounded-md">
-                <GalleryVerticalEnd className="size-6" />
+                <RiGalleryView className="size-6" />
               </div>
               <span className="sr-only">Acme Inc.</span>
             </a>
@@ -87,7 +87,7 @@ function LoginForm() {
               />
             </div>
             <Button type="submit" className="mt-2 w-full" size="lg" disabled={isPending}>
-              {isPending && <LoaderCircle className="animate-spin" />}
+              {isPending && <RiLoader4Line className="animate-spin" />}
               {isPending ? "Logging in..." : "Login"}
             </Button>
           </div>
