@@ -10,7 +10,7 @@
     "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "catalog:",
+    "@fontsource-variable/dm-sans": "catalog:",
     "@remixicon/react": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",

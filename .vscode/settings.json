@@ -24,7 +24,7 @@
   // use LF line endings
   "files.eol": "\n",
 
-  // disable prettier & eslint for oxc + oxfmt
+  // disable prettier & eslint for oxlint + oxfmt
   "prettier.enable": false,
   "eslint.enable": false,
   "oxc.enable": true,

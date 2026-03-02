@@ -6,6 +6,9 @@
     "node": true,
     "browser": true
   },
+  "options": {
+    "typeAware": true
+  },
   "jsPlugins": [
     "eslint-plugin-turbo",
     { "name": "react-hooks-js", "specifier": "eslint-plugin-react-hooks" },
