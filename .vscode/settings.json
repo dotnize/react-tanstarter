@@ -24,9 +24,11 @@
   // use LF line endings
   "files.eol": "\n",
 
-  // disable prettier & eslint for oxlint + oxfmt
+  // disable prettier, eslint, biome
   "prettier.enable": false,
   "eslint.enable": false,
+  "biome.enabled": false,
+  // enable oxlint + oxfmt
   "oxc.enable": true,
 
   // type-aware linting
