@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
-    "@better-auth/drizzle-adapter": "^1.5.1",
+    "@better-auth/drizzle-adapter": "^1.5.2",
     "@fontsource-variable/dm-sans": "^5.2.8",
     "@remixicon/react": "^4.9.0",
     "@t3-oss/env-core": "^0.13.10",
@@ -30,7 +30,7 @@
     "@tanstack/react-router": "^1.163.3",
     "@tanstack/react-router-ssr-query": "^1.163.3",
     "@tanstack/react-start": "^1.166.1",
-    "better-auth": "^1.5.1",
+    "better-auth": "^1.5.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.1",

@@ -22,15 +22,17 @@
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts",
     "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
-    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .editorconfig, .gitattributes, oxfmt*, oxlint*, .oxfmt*, .oxlint*, bun.lock"
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .editorconfig, .gitattributes, oxfmt*, oxlint*, .oxfmt*, .oxlint*, commitlint.config*, bun.lock"
   },
 
   // use LF line endings
   "files.eol": "\n",
 
-  // disable prettier & eslint for oxlint + oxfmt
+  // disable prettier, eslint, biome
   "prettier.enable": false,
   "eslint.enable": false,
+  "biome.enabled": false,
+  // enable oxlint + oxfmt
   "oxc.enable": true,
 
   // type-aware linting
