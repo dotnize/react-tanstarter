@@ -4,6 +4,7 @@
 
 - Stack: TypeScript + React (TanStack Start), with Drizzle ORM, shadcn/ui, and Better Auth.
 - Use shadcn CLI (`pnpm ui add <component>`) for adding new UI components & primitives.
+- Use `pnpm tanstack <command>` for TanStack docs lookup (see [Workflow](.agents/workflow.md#tanstack-cli)).
 - Don't build after every little change. If `pnpm lint` passes; assume changes work.
 
 ## Topic-specific Guidelines

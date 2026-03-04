@@ -86,6 +86,6 @@ Code in this template is public domain via [Unlicense](./LICENSE). Feel free to 
 
 ## Also check out
 
-- [TanStack CLI & MCP](https://tanstack.com/cli/latest) - The official CLI, MCP server, and AI toolkit for TanStack. Create and customize TanStack Start apps, search docs, integrate with AI agents, and more.
+- [TanStack CLI](https://tanstack.com/cli/latest) - The official CLI and AI toolkit for TanStack. Create and customize TanStack Start apps, search docs, integrate with AI agents, and more.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
 - [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [MCP](https://ui.shadcn.com/docs/mcp), [shoogle.dev](https://shoogle.dev/) - Component directories & registries for shadcn/ui.
