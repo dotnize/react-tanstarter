@@ -5,7 +5,7 @@
 - Stack: TypeScript + React (TanStack Start) in a pnpm + Turborepo monorepo, with Drizzle ORM, shadcn/ui, and Better Auth.
 - Prefer shared `@repo/ui` components; add primitives via shadcn CLI (`pnpm ui add <component>`).
 - Use shared pnpm catalog versions (`pnpm-workspace.yaml`) via `catalog:`.
-- Use `pnpm dlx @tanstack/cli` for TanStack docs lookup (see [Workflow](.agents/workflow.md#tanstack-cli)).
+- Use `pnpm tanstack <command>` for TanStack docs lookup (see [Workflow](.agents/workflow.md#tanstack-cli)).
 - Don't build after every little change. If `pnpm lint` passes; assume changes work.
 
 ## Topic-specific Guidelines

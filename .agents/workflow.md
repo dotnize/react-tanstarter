@@ -11,19 +11,19 @@ Don't build after every change. If lint passes; assume changes work.
 
 ## TanStack CLI
 
-Use `pnpm dlx @tanstack/cli` to look up TanStack documentation. Always pass `--json` for machine-readable output.
+Use `pnpm tanstack` (which is aliased to `pnpm dlx @tanstack/cli@latest` in `package.json`) to look up TanStack documentation. Always pass `--json` for machine-readable output.
 
 ```bash
 # List TanStack libraries (optionally filter by --group state|headlessUI|performance|tooling)
-pnpm dlx @tanstack/cli libraries --json
+pnpm tanstack libraries --json
 
 # Fetch a specific doc page
-pnpm dlx @tanstack/cli doc router framework/react/guide/data-loading --json
-pnpm dlx @tanstack/cli doc query framework/react/overview --docs-version v5 --json
+pnpm tanstack doc router framework/react/guide/data-loading --json
+pnpm tanstack doc query framework/react/overview --docs-version v5 --json
 
 # Search docs (optionally filter by --library, --framework, --limit)
-pnpm dlx @tanstack/cli search-docs "server functions" --library start --json
-pnpm dlx @tanstack/cli search-docs "loaders" --library router --framework react --json
+pnpm tanstack search-docs "server functions" --library start --json
+pnpm tanstack search-docs "loaders" --library router --framework react --json
 ```
 
 ## Testing

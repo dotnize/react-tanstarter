@@ -13,6 +13,7 @@
     "prepare": "husky",
     "deps": "pnpm dlx taze@latest -Ilwr",
     "deps:major": "pnpm dlx taze@latest major -Ilwr",
+    "tanstack": "pnpm dlx @tanstack/cli@latest",
     "db": "pnpm --filter=@repo/db run db",
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui",

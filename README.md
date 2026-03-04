@@ -131,6 +131,6 @@ The template is kept minimal by default, but is compatible with many third‑par
 
 ## Ecosystem
 
-- [TanStack CLI](https://tanstack.com/cli/latest) - The official CLI for TanStack libraries, which includes docs search commands for agent workflows.
+- [TanStack CLI](https://tanstack.com/cli/latest) - The official CLI for TanStack, which includes docs search commands for agent workflows.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
 - [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [MCP](https://ui.shadcn.com/docs/mcp), [shoogle.dev](https://shoogle.dev/) - Component directories & registries for shadcn/ui.
