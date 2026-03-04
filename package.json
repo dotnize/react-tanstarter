@@ -19,7 +19,8 @@
     "ui": "pnpm dlx shadcn@latest",
     "auth": "pnpm dlx auth@latest",
     "auth:secret": "pnpm dlx auth@latest secret",
-    "auth:generate": "pnpm dlx auth@latest generate --config ./src/lib/auth/auth.ts --y --output ./src/lib/db/schema/auth.schema.ts"
+    "auth:generate": "pnpm dlx auth@latest generate --config ./src/lib/auth/auth.ts --y --output ./src/lib/db/schema/auth.schema.ts",
+    "auth:migrate": "pnpm run auth:generate && pnpm run db:generate && pnpm run db:migrate"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
