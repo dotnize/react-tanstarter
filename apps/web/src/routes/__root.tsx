@@ -3,8 +3,8 @@ import type { AuthQueryResult } from "@repo/auth/tanstack/queries";
 import { Toaster } from "@repo/ui/components/sonner";
 import { ThemeProvider } from "@repo/ui/lib/theme-provider";
 import { TanStackDevtools } from "@tanstack/react-devtools";
+import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
 import type { QueryClient } from "@tanstack/react-query";
-// import { formDevtoolsPlugin } from "@tanstack/react-form-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import {
   createRootRouteWithContext,
@@ -88,7 +88,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
               name: "TanStack Router",
               render: <TanStackRouterDevtoolsPanel />,
             },
-            // formDevtoolsPlugin(),
+            formDevtoolsPlugin(),
           ]}
         />
 
