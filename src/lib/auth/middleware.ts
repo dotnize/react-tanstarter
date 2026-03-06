@@ -1,35 +1,43 @@
 import { createMiddleware } from "@tanstack/react-start";
-import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { setResponseStatus } from "@tanstack/react-start/server";
 
-import { auth } from "@/lib/auth/auth";
+import { _getUser } from "@/lib/auth/functions";
 
 // https://tanstack.com/start/latest/docs/framework/react/guide/middleware
-// This is just an example middleware that you can modify and use in your server functions or routes.
+// These are example middlewares that you can modify and use in your server functions or routes.
 
 /**
  * Middleware to force authentication on server requests (including server functions), and add the user to the context.
+ *
+ * Follows the cookieCache option in the auth config (template default: 5 mins). This is recommended for most cases, like route-level data fetching operations where some staleness may be acceptable and reduced server load is beneficial.
  */
 export const authMiddleware = createMiddleware().server(async ({ next }) => {
-  const session = await auth.api.getSession({
-    headers: getRequest().headers,
-    query: {
-      // ensure session is fresh
-      // https://www.better-auth.com/docs/concepts/session-management#session-caching
-      disableCookieCache: true,
-    },
-    returnHeaders: true,
-  });
+  const user = await _getUser();
 
-  // Forward any Set-Cookie headers to the client, e.g. for session/cache refresh
-  const cookies = session.headers?.getSetCookie();
-  if (cookies?.length) {
-    setResponseHeader("Set-Cookie", cookies);
-  }
-
-  if (!session?.response?.user) {
+  if (!user) {
     setResponseStatus(401);
     throw new Error("Unauthorized");
   }
 
-  return next({ context: { user: session.response.user } });
+  return next({ context: { user } });
+});
+
+/**
+ * Middleware to force authentication on server requests (including server functions), and add the user to the context.
+ *
+ * Auth cookie cache is disabled, and fresh user session is always fetched from database. This is recommended for sensitive/destructive operations and mutations that require the freshest auth state, e.g. to prevent a user from performing an action after their session has expired or been revoked.
+ */
+export const freshAuthMiddleware = createMiddleware().server(async ({ next }) => {
+  const user = await _getUser({
+    // ensure session is fresh
+    // https://better-auth.com/docs/concepts/session-management#cookie-cache
+    disableCookieCache: true,
+  });
+
+  if (!user) {
+    setResponseStatus(401);
+    throw new Error("Unauthorized");
+  }
+
+  return next({ context: { user } });
 });
