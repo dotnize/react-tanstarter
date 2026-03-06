@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_auth")({
       throw redirect({ to: "/login" });
     }
 
-    // re-return to update type as non-null for child routes
+    // return context for use in child routes & loaders
     return { user };
   },
 });
