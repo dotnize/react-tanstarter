@@ -1,6 +1,7 @@
 @import "@repo/ui/styles/base.css";
-
 @source "./";
+
+@import "@fontsource-variable/dm-sans";
 
 @theme inline {
   --font-sans: "DM Sans Variable", sans-serif;

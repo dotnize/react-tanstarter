@@ -11,6 +11,7 @@
     "prefix": ""
   },
   "iconLibrary": "remixicon",
+  "rtl": false,
   "aliases": {
     "components": "@repo/ui/components",
     "utils": "@repo/ui/lib/utils",
@@ -20,6 +21,5 @@
   },
   "menuColor": "default",
   "menuAccent": "subtle",
-  "rtl": false,
   "registries": {}
 }
