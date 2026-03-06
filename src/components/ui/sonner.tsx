@@ -1,8 +1,10 @@
+"use client";
+
 import {
   RiCheckboxCircleLine,
-  RiCloseCircleLine,
-  RiErrorWarningLine,
   RiInformationLine,
+  RiErrorWarningLine,
+  RiCloseCircleLine,
   RiLoaderLine,
 } from "@remixicon/react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
@@ -14,7 +16,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
 
   return (
     <Sonner
-      theme={theme}
+      theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
         success: <RiCheckboxCircleLine className="size-4" />,
