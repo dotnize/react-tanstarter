@@ -45,13 +45,10 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 
 ## Getting Started
 
-1. Clone this repository with gitpick, then install dependencies:
+1. Create a project using this template:
 
-   ```sh
-   npx gitpick mugnavo/tanstarter/tree/next myproject
-   cd myproject
-
-   pnpm install
+   ```
+   pnpm create mugnavo@latest --template monorepo
    ```
 
 2. Create `.env` files in [`/apps/web`](./apps/web/.env.example) and [`/packages/db`](./packages/db/.env.example) based on their respective `.env.example` files.
