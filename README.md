@@ -15,22 +15,15 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Getting Started
 
-1. [Use this template](https://github.com/new?template_name=tanstarter&template_owner=mugnavo) or clone this repository with gitpick:
+1. [Use this template](https://github.com/new?template_name=tanstarter&template_owner=mugnavo) or create a project using our CLI:
 
    ```bash
-   npx gitpick mugnavo/tanstarter myapp
-   cd myapp
+   pnpm create mugnavo@latest
    ```
 
-2. Install dependencies:
+2. Create a `.env` file based on [`.env.example`](./.env.example).
 
-   ```bash
-   pnpm install
-   ```
-
-3. Create a `.env` file based on [`.env.example`](./.env.example).
-
-4. Push the schema to your database with drizzle-kit:
+3. Push the schema to your database with drizzle-kit:
 
    ```bash
    pnpm db push
@@ -38,7 +31,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
    https://orm.drizzle.team/docs/migrations
 
-5. Run the development server:
+4. Run the development server:
 
    ```bash
    pnpm dev
