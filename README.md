@@ -48,7 +48,7 @@ A minimal monorepo starter for 🏝️ TanStack Start.
 1. Create a project using this template:
 
    ```
-   pnpm create mugnavo@latest --template monorepo
+   pnpm create mugnavo@latest -t monorepo
    ```
 
 2. Create `.env` files in [`/apps/web`](./apps/web/.env.example) and [`/packages/db`](./packages/db/.env.example) based on their respective `.env.example` files.
@@ -92,7 +92,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 - [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
 - [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - This template is configured with Nitro v3 nightly by default.
 - [Drizzle ORM v1 Beta](https://orm.drizzle.team/docs/relations-v1-v2) - Drizzle ORM v1 is in beta with relations v2.
-- [Better Auth beta](https://github.com/better-auth/better-auth/pull/6913) - We're using a separate branch of Better Auth v1.5 that supports Drizzle relations v2.
+- [Better Auth experimental branch](https://github.com/better-auth/better-auth/pull/6913) - We're using a separate branch of Better Auth v1.5 that supports Drizzle relations v2.
 
 ## Goodies
 
