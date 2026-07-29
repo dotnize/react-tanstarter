@@ -35,7 +35,7 @@
     "@tanstack/react-query": "5.101.4",
     "@tanstack/react-router": "1.170.18",
     "@tanstack/react-router-ssr-query": "1.167.1",
-    "@tanstack/react-start": "1.168.32",
+    "@tanstack/react-start": "1.168.33",
     "better-auth": "1.7.0-rc.2",
     "class-variance-authority": "0.7.1",
     "cnfast": "0.1.0",
@@ -75,6 +75,6 @@
   "engines": {
     "node": ">=24"
   },
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@11.18.0",
   "generator": "create-mugnavo"
 }

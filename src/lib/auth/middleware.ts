@@ -9,7 +9,7 @@ import { _getUser } from "#/lib/auth/functions";
  * Middleware to force authentication on server requests (including server functions), and add the user to the context.
  *
  * Follows the cookieCache option in the auth config (template default: 5 mins).
- * This is recommended for most cases, like route-level data fetching operations where some staleness may be acceptable and reduced server load is beneficial.
+ * This is recommended for most cases, like route-level data fetching operations where some staleness may be acceptable and reduced database load is beneficial.
  *
  * @see https://better-auth.com/docs/concepts/session-management#cookie-cache
  */

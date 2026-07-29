@@ -5,8 +5,6 @@ import { authQueryOptions } from "#/lib/auth/queries";
 /**
  * This is the _auth layout, which enables 'protected routes'
  * for all child routes under _auth (e.g. _auth/app/*)
- *
- * The returned context from beforeLoad is also available to all child routes & loaders.
  */
 export const Route = createFileRoute("/_auth")({
   component: Outlet,
@@ -33,7 +31,13 @@ export const Route = createFileRoute("/_auth")({
       throw redirect({ to: "/login" });
     }
 
-    // return context for use in child routes & loaders
-    return { user };
+    /**
+     * If we need auth data in other loaders/beforeLoad,
+     * use `authQueryOptions` with `context.queryClient`,
+     * similar to what we already do here.
+     *
+     * Prefer this approach instead of passing user to router/loader context,
+     * for simpler centralized revalidation via TanStack Query.
+     */
   },
 });

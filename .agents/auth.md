@@ -5,13 +5,12 @@
 - Better Auth config lives in `src/lib/auth/auth.ts`.
 - Auth utilities are centralized in `src/lib/auth/*`.
 - In components, prefer shared auth hooks (`useAuth`, `useAuthSuspense`) from `src/lib/auth/hooks.ts`. These reuse the same auth data as the route loader.
-- For route loaders under `_auth`, prefer loader context user over duplicate auth fetches.
+- For route loaders under `_auth`, use `authQueryOptions` with the existing `context.queryClient`, similar to how the user is fetched in `_auth/route.tsx`.
 
 ## Route Guards
 
 - Protected route layout is `src/routes/_auth/route.tsx`.
-  - It enforces auth in `beforeLoad` using `ensureQueryData(authQueryOptions())`.
-  - It returns `{ user }`, which is available to all child route loaders via router context.
+  - It enforces auth in `beforeLoad` using TanStack Query's `ensureQueryData(authQueryOptions())` for optimized navigation UX.
 - Guest-only route layout is `src/routes/_guest/route.tsx`.
   - It redirects authenticated users away from login/signup routes.
 

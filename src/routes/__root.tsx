@@ -7,18 +7,12 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { ThemeProvider } from "#/components/theme-provider";
 import { Toaster } from "#/components/ui/toast";
-import type { AuthQueryResult } from "#/lib/auth/queries";
 
 import appCss from "#/styles.css?url";
 
-interface MyRouterContext {
-  queryClient: QueryClient;
-  user: AuthQueryResult;
-}
-
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   // Typically we don't need the user immediately in landing pages.
-  // For protected routes with loader data, see /_auth/route.tsx
+  // For protected routes, see /_auth/route.tsx
   // beforeLoad: ({ context }) => {
   //   context.queryClient.prefetchQuery(authQueryOptions());
   // },

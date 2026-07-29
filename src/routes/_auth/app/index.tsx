@@ -8,9 +8,6 @@ export const Route = createFileRoute("/_auth/app/")({
 
 function AppIndex() {
   const { user } = useAuthSuspense();
-  // We can also use Route.useRouteContext() which uses loader/beforeLoad data from parent layouts.
-  // But useAuth() or useAuthSuspense() is preferred for direct TanStack Query revalidation,
-  // since beforeLoad only re-runs on navigation.
 
   return (
     <div className="flex flex-col items-center gap-3 text-center text-sm">
