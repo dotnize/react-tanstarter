@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner";
 
 import { Button } from "#/components/ui/button";
+import { toast } from "#/components/ui/toast";
 import { authClient } from "#/lib/auth/auth-client";
 
 interface SocialLoginButtonProps {
@@ -26,7 +26,10 @@ export function SignInSocialButton(props: SocialLoginButtonProps) {
         },
         {
           onError: ({ error }) => {
-            toast.error(error.message || `An error occurred during ${providerLabel} sign-in.`);
+            toast.add({
+              type: "error",
+              description: error.message || `An error occurred during ${providerLabel} sign-in.`,
+            });
           },
         },
       ),

@@ -4,11 +4,11 @@ import { Link } from "@tanstack/react-router";
 import { CheckIcon, CopyIcon, ExternalLinkIcon, StarIcon, TerminalIcon } from "lucide-react";
 import { Suspense } from "react";
 import { useState } from "react";
-import { toast } from "sonner";
 
 import { SignOutButton } from "#/components/sign-out-button";
 import { ThemeToggle } from "#/components/theme-toggle";
 import { Button } from "#/components/ui/button";
+import { toast } from "#/components/ui/toast";
 import { useAuthSuspense } from "#/lib/auth/hooks";
 
 /**
@@ -26,13 +26,12 @@ export function IntroPageDeleteMe() {
     try {
       await navigator.clipboard.writeText(cloneCommand);
       setIsCopied(true);
-      toast.success("Command copied to clipboard", { position: "top-center", richColors: false });
-
+      toast.add({ type: "success", description: "Command copied to clipboard." });
       setTimeout(() => {
         setIsCopied(false);
       }, 4000);
     } catch {
-      toast.error("Failed to copy command", { position: "top-center" });
+      toast.add({ type: "error", description: "Failed to copy command." });
     }
   };
 

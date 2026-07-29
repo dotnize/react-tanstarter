@@ -6,7 +6,7 @@ import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/reac
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { ThemeProvider } from "#/components/theme-provider";
-import { Toaster } from "#/components/ui/sonner";
+import { Toaster } from "#/components/ui/toast";
 import type { AuthQueryResult } from "#/lib/auth/queries";
 
 import appCss from "#/styles.css?url";
@@ -63,7 +63,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
       <body>
         <ThemeProvider>
           {children}
-          <Toaster richColors />
+          <Toaster />
         </ThemeProvider>
 
         <TanStackDevtools
