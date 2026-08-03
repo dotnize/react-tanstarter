@@ -111,7 +111,7 @@ export function IntroPageDeleteMe() {
         />
         <Feature
           title="Next-Gen Tooling"
-          desc="Powered by Vite+, which includes Vite 8, Rolldown, and Oxc for a faster development workflow."
+          desc="Powered by Vite+, which includes Vite, Oxlint, and Oxfmt for a faster development workflow."
         />
       </section>
 
