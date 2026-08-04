@@ -1,4 +1,4 @@
-<!-- based on https://github.com/TanStack/tanstack.com/blob/main/.claude/typescript.md -->
+<!-- based on https://github.com/TanStack/tanstack.com/blob/main/.agents/typescript.md -->
 
 # TypeScript Conventions
 
