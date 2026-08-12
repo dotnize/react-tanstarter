@@ -8,6 +8,18 @@
 - Don't build after every little change. If `vpr lint` passes; assume changes work.
 - For running scripts, use `vpr`, which is a shorthand for `vp run`.
 
+## Code style
+
+- Do not introduce abstractions, generic utilities, or extensibility without a concrete need.
+- Avoid unnecessary indirection and wrapper layers that only rename or forward calls.
+- Prefer cohesive, readable functions over excessive fragmentation; extract helpers when they meaningfully improve readability, reuse, or testability.
+- Keep types simple and close to where they are used. Prefer inference and avoid type gymnastics unless necessary.
+- Follow existing abstractions; do not add new architectural layers without a concrete need.
+- Minimize indirection: keep the main control flow easy to follow without unnecessary jumps across too many files/functions.
+- Be robust at system boundaries such as user input, auth, external APIs, and persistence; avoid redundant defensive code where internal invariants are already enforced.
+- Do not sacrifice security, correctness, or meaningful edge-case handling for brevity.
+- Add concise comments only for non-obvious intent, unusual edge cases, and important constraints. Briefly explain why, not what.
+
 ## Topic-specific Guidelines
 
 - [TanStack patterns](.agents/tanstack-patterns.md) - Routing, data fetching/mutations, loaders, server functions, environment shaking. For TanStack Query, Router, and Start
@@ -40,6 +52,13 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 ## Built-in Commands vs Scripts
 
 `vp <name>` runs a built-in command. `vp run <name>` runs a `package.json` script or a `vite.config.ts` task. Scripts cannot overwrite built-ins, so `vp dev` and `vp run dev` may do different things. Check `package.json` and `vite.config.ts` first, and run `vp run <name>` when the project defines a script or task with that name.
+
+## Tool Versions
+
+Run `vp toolchain` to show versions and relationships in the active Vite+
+release. Add a tool name to select part of the graph. For example, run
+`vp toolchain vite`. Use `--global` to ignore the local `vite-plus` package. Use
+`vp why <package>` to show the package-manager dependency graph.
 
 ## Review Checklist
 
