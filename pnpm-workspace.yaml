@@ -5,8 +5,12 @@ allowBuilds:
 # https://pnpm.io/supply-chain-security#delay-dependency-updates
 minimumReleaseAge: 1440
 
+# Save exact versions to package.json instead of broad ranges
+savePrefix: ""
+
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.2
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.9
+  vite-plus: 0.2.9
 overrides:
   vite: "catalog:"
 peerDependencyRules:

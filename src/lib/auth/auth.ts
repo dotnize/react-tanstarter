@@ -1,5 +1,5 @@
 import "@tanstack/react-start/server-only";
-import { drizzleAdapter } from "@better-auth/drizzle-adapter";
+import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 
@@ -45,8 +45,10 @@ export const auth = betterAuth({
     enabled: true,
   },
 
-  experimental: {
-    // https://better-auth.com/docs/adapters/drizzle#joins-experimental
-    joins: true,
+  advanced: {
+    database: {
+      // https://better-auth.com/docs/adapters/drizzle#joins
+      joins: true,
+    },
   },
 });

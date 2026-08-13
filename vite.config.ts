@@ -9,10 +9,16 @@ import { defineConfig, lazyPlugins } from "vite-plus";
 import { version } from "./package.json";
 
 // https://viteplus.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   // Git hooks for staged files - https://viteplus.dev/guide/commit-hooks
   staged: {
     "*": "vp fmt --no-error-on-unmatched-pattern",
+  },
+
+  // Vitest (via Vite+) - https://viteplus.dev/guide/test
+  test: {
+    include: ["src/**/*.test.{ts,tsx}"],
+    passWithNoTests: true,
   },
 
   // Oxfmt - https://oxc.rs/docs/guide/usage/formatter/config.html
@@ -119,15 +125,22 @@ export default defineConfig({
     port: 3000,
   },
   plugins: lazyPlugins(() => [
-    devtools(),
-    tanstackStart(),
-    // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-    nitro(),
-    viteReact(),
-    // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
-    babel({
-      presets: [reactCompilerPreset()],
-    }),
-    tailwindcss(),
+    ...(mode === "test"
+      ? []
+      : [
+          devtools({
+            // https://tanstack.com/devtools/latest/docs/vite-plugin#console-piping
+            consolePiping: { enabled: false },
+          }),
+          tanstackStart(),
+          // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
+          nitro(),
+          viteReact(),
+          // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
+          babel({
+            presets: [reactCompilerPreset()],
+          }),
+          tailwindcss(),
+        ]),
   ]),
-});
+}));

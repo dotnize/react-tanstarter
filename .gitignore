@@ -1,4 +1,5 @@
 node_modules
+.pnpm-store
 
 # Ignore lockfiles we don't use
 # package-lock.json
@@ -8,7 +9,12 @@ node_modules
 
 .DS_Store
 .cache
+
+# Env files
 .env
+.env.*
+!.env.example
+!.env.*.example
 
 .data
 .vercel

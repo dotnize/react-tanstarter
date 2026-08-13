@@ -6,19 +6,13 @@ import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/reac
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { ThemeProvider } from "#/components/theme-provider";
-import { Toaster } from "#/components/ui/sonner";
-import type { AuthQueryResult } from "#/lib/auth/queries";
+import { Toaster } from "#/components/ui/toast";
 
 import appCss from "#/styles.css?url";
 
-interface MyRouterContext {
-  queryClient: QueryClient;
-  user: AuthQueryResult;
-}
-
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   // Typically we don't need the user immediately in landing pages.
-  // For protected routes with loader data, see /_auth/route.tsx
+  // For protected routes, see /_auth/route.tsx
   // beforeLoad: ({ context }) => {
   //   context.queryClient.prefetchQuery(authQueryOptions());
   // },
@@ -63,7 +57,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
       <body>
         <ThemeProvider>
           {children}
-          <Toaster richColors />
+          <Toaster />
         </ThemeProvider>
 
         <TanStackDevtools
