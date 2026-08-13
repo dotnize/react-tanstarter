@@ -1,7 +1,7 @@
 import { createMiddleware } from "@tanstack/react-start";
 import { setResponseStatus } from "@tanstack/react-start/server";
 
-import { _getUser } from "#/lib/auth/functions";
+import { _getUser } from "#/lib/auth/functions.ts";
 
 // https://tanstack.com/start/latest/docs/framework/react/guide/middleware
 

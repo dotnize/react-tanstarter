@@ -1,7 +1,7 @@
 import { createServerFn, createServerOnlyFn } from "@tanstack/react-start";
 import { getRequest, setResponseHeader } from "@tanstack/react-start/server";
 
-import { auth } from "#/lib/auth/auth";
+import { auth } from "#/lib/auth/auth.ts";
 
 /**
  * This server function is meant to be called via authQueryOptions() in queries.ts,

@@ -4,13 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#/*": [
-      "./src/*",
-      "./src/*.ts",
-      "./src/*.tsx",
-      "./src/*/index.ts",
-      "./src/*/index.tsx"
-    ]
+    "#/*": "./src/*"
   },
   "scripts": {
     "dev": "vp dev",

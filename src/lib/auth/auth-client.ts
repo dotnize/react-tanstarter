@@ -1,6 +1,6 @@
 import { createAuthClient } from "better-auth/react";
 
-import { env } from "#/env/client";
+import { env } from "#/env/client.ts";
 
 /**
  * https://better-auth.com/docs/concepts/client
