@@ -95,6 +95,14 @@ Check [package.json](./package.json) for the full list of available scripts.
 - [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for enforcing authentication on server functions & API routes.
 - [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode.
 
+#### Testing
+
+The [testing foundation](./.agents/testing.md) uses Vitest and Playwright and is intentionally lightweight. For short-lived prototypes, it can be safely ignored or removed.
+
+- `vpr test` (or Vite+'s built-in `vp test`) runs the Vitest unit and local integration tests once.
+- `vpr test watch` runs Vitest in watch mode.
+- `vpr test:e2e` builds the app and runs the Playwright end-to-end tests.
+
 ## License
 
 Code in this template is public domain via [Unlicense](./LICENSE). Feel free to remove or replace for your own project.

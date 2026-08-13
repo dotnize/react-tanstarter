@@ -5,7 +5,7 @@
 - Stack: TypeScript + React (TanStack Start), with Drizzle ORM, shadcn/ui, and Better Auth.
 - Use shadcn CLI (`vpr ui add <component>`) for adding new UI components & primitives.
 - Use `lucide-react` for UI icons (use `Icon` suffix, e.g. `import { Loader2Icon } from "lucide-react"`); for brand icons use `@icons-pack/react-simple-icons` (e.g. `SiGithub`).
-- Don't build after every little change. If `vpr lint` passes; assume changes work.
+- Don't run a standalone build after every little change. Use `vpr lint` as the baseline and run the narrowest relevant tests described in the testing guidelines; `vpr test:e2e` performs its own production build.
 - For running scripts, use `vpr`, which is a shorthand for `vp run`.
 
 ## Code style
@@ -24,6 +24,7 @@
 
 - [TanStack patterns](.agents/tanstack-patterns.md) - Routing, data fetching/mutations, loaders, server functions, environment shaking. For TanStack Query, Router, and Start
 - [Auth patterns](.agents/auth.md) - Route guards, middleware, auth utilities
+- [Testing](.agents/testing.md) - What to test, Vitest/Playwright boundaries, commands
 - [TypeScript conventions](.agents/typescript.md) - Casting rules, prefer type inference
 - [Workflow](.agents/workflow.md) - Workflow commands, validation approach
 
