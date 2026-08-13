@@ -3,13 +3,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { GalleryVerticalEndIcon, LoaderCircleIcon } from "lucide-react";
 
-import { SignInSocialButton } from "#/components/sign-in-social-button";
-import { Button } from "#/components/ui/button";
-import { Input } from "#/components/ui/input";
-import { Label } from "#/components/ui/label";
-import { toast } from "#/components/ui/toast";
-import { authClient } from "#/lib/auth/auth-client";
-import { authQueryOptions } from "#/lib/auth/queries";
+import { SignInSocialButton } from "#/components/sign-in-social-button.tsx";
+import { Button } from "#/components/ui/button.tsx";
+import { Input } from "#/components/ui/input.tsx";
+import { Label } from "#/components/ui/label.tsx";
+import { toast } from "#/components/ui/toast.tsx";
+import { authClient } from "#/lib/auth/auth-client.ts";
+import { authQueryOptions } from "#/lib/auth/queries.ts";
 
 export const Route = createFileRoute("/_guest/signup")({
   component: SignupForm,

@@ -13,12 +13,8 @@
     "target": "ES2022",
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      // See:
-      // https://github.com/mugnavo/tanstarter/pull/77
-      // https://github.com/mugnavo/tanstarter/pull/76
-      "#/*": ["./src/*"]
-    },
+    "resolvePackageJsonImports": true,
+    "allowImportingTsExtensions": true,
     "noEmit": true,
     "strictNullChecks": true,
     "types": ["node", "vite/client"]

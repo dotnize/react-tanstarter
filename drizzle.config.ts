@@ -1,6 +1,6 @@
 import type { Config } from "drizzle-kit";
 
-import { env } from "#/env/server";
+import { env } from "#/env/server.js";
 
 export default {
   out: "./drizzle",

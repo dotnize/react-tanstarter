@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 
-import { Button } from "#/components/ui/button";
-import { toast } from "#/components/ui/toast";
-import { authClient } from "#/lib/auth/auth-client";
+import { Button } from "#/components/ui/button.tsx";
+import { toast } from "#/components/ui/toast.tsx";
+import { authClient } from "#/lib/auth/auth-client.ts";
 
 interface SocialLoginButtonProps {
   provider: string;
