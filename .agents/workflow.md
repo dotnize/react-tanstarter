@@ -11,12 +11,10 @@ Don't invoke a standalone build after every change. Use lint as the baseline and
 
 ## Testing
 
-- `vpr test` (or Vite+'s built-in `vp test`): Run all Vitest unit and local integration tests once
-- `vpr test watch` (or Vite+'s built-in `vp test watch`): Run Vitest in watch mode
+- `vpr test`: Run all Vitest unit and local integration tests once
+- `vpr test watch`: Run Vitest in watch mode
 - `vpr test:e2e`: Build the app and run its local Chromium end-to-end tests against the built server
 - `vp exec playwright install chromium`: Install the E2E browser once per machine
-
-`vpr test` and `vpr test:e2e` are the uniform project-script commands for Vitest and Playwright.
 
 Run the narrowest tests relevant to the changed behavior. Playwright remains separate from the default lint/check loop; use it whenever a change affects a covered browser journey. Its configuration owns the production build and built-server lifecycle, so do not start a development server or run a separate build first. See [Testing](./testing.md) for test selection and design guidance.
 
