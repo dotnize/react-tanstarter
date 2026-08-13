@@ -24,9 +24,10 @@ Routine tests must not call third-party services. Keep external access behind a 
 
 ## Conventions and Commands
 
-- Colocate Node tests as `*.test.ts` or `*.test.tsx`. Import test APIs from `vite-plus/test`.
-- `vp test`: Run Node tests once.
-- `vp test watch`: Run Node tests in watch mode.
+- Colocate Vitest tests with source code as `*.test.ts` or `*.test.tsx`. Put Playwright tests under `e2e/` as `*.spec.ts`. Do not create a `__tests__` directory unless a feature has enough test-only files to justify grouping them.
+- Import Vitest APIs from `vite-plus/test`.
+- `vpr test`: Run all Vitest unit and local integration tests once.
+- `vpr test watch`: Run the Vitest suite in watch mode.
 - `vp exec playwright install chromium`: Install the E2E browser once per machine.
 - `vpr test:e2e`: Build the app and run its E2E suite against the built production server.
 

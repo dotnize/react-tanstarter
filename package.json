@@ -9,6 +9,7 @@
     "preview": "vp preview",
     "start": "node --env-file-if-exists=.env .output/server/index.mjs",
     "start:e2e": "node --env-file-if-exists=.env.e2e .output/server/index.mjs",
+    "test": "vp test",
     "test:e2e": "playwright test --pass-with-no-tests",
     "lint": "vp lint --type-aware --type-check",
     "lint:fix": "vp lint --type-aware --type-check --fix",
