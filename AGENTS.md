@@ -24,6 +24,7 @@
 
 - [TanStack patterns](.agents/tanstack-patterns.md) - Routing, data fetching/mutations, loaders, server functions, environment shaking. For TanStack Query, Router, and Start
 - [Auth patterns](.agents/auth.md) - Route guards, middleware, auth utilities
+- [Database conventions](.agents/database.md) - Drizzle column types and generated Better Auth schema ownership
 - [Testing](.agents/testing.md) - What to test, Vitest/Playwright boundaries, commands
 - [TypeScript conventions](.agents/typescript.md) - Casting rules, prefer type inference
 - [Workflow](.agents/workflow.md) - Workflow commands, validation approach
