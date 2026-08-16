@@ -1,8 +1,5 @@
 # [TanStarter](https://github.com/mugnavo/tanstarter)
 
-> [!IMPORTANT]
-> This template now requires [Vite+ `vp`](https://viteplus.dev/guide/#install-vp) to be installed, and uses [pnpm](https://pnpm.io/installation) by default.
-
 <!-- scaffold:description -->
 
 A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.mugnavo.com/)
