@@ -1,9 +1,8 @@
-import { SiGithub, SiGoogle } from "@icons-pack/react-simple-icons";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { GalleryVerticalEndIcon, LoaderCircleIcon } from "lucide-react";
+import { LoaderCircleIcon } from "lucide-react";
 
-import { SignInSocialButton } from "#/components/sign-in-social-button.tsx";
+import { SocialSignInButtons } from "#/components/sign-in-social-buttons.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
@@ -48,12 +47,22 @@ function SignupForm() {
     if (isPending) return;
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-    const confirmPassword = formData.get("confirm_password") as string;
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirm_password");
 
-    if (!name || !email || !password || !confirmPassword) return;
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof password !== "string" ||
+      typeof confirmPassword !== "string" ||
+      !name ||
+      !email ||
+      !password ||
+      !confirmPassword
+    )
+      return;
 
     if (password !== confirmPassword) {
       toast.add({ type: "error", description: "Passwords do not match." });
@@ -65,17 +74,12 @@ function SignupForm() {
 
   return (
     <div className="flex flex-col gap-6">
-      <form onSubmit={handleSubmit}>
+      <div className="space-y-2 text-center">
+        <h1 className="text-2xl font-bold tracking-tight">Create your account</h1>
+        <p className="text-sm text-muted-foreground">Start with a few basic details.</p>
+      </div>
+      <form onSubmit={handleSubmit} aria-busy={isPending}>
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col items-center gap-2">
-            <Link to="/" className="flex flex-col items-center gap-2 font-medium">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md">
-                <GalleryVerticalEndIcon className="size-6" />
-              </div>
-              <span className="sr-only">Acme Inc.</span>
-            </Link>
-            <h1 className="text-xl font-bold">Sign up for Acme Inc.</h1>
-          </div>
           <div className="flex flex-col gap-5">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
@@ -84,6 +88,7 @@ function SignupForm() {
                 name="name"
                 type="text"
                 placeholder="John Doe"
+                autoComplete="name"
                 readOnly={isPending}
                 required
               />
@@ -95,6 +100,7 @@ function SignupForm() {
                 name="email"
                 type="email"
                 placeholder="hello@example.com"
+                autoComplete="email"
                 readOnly={isPending}
                 required
               />
@@ -105,7 +111,8 @@ function SignupForm() {
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Create a password"
+                autoComplete="new-password"
                 readOnly={isPending}
                 required
               />
@@ -116,41 +123,25 @@ function SignupForm() {
                 id="confirm_password"
                 name="confirm_password"
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Repeat your password"
+                autoComplete="new-password"
                 readOnly={isPending}
                 required
               />
             </div>
             <Button type="submit" className="mt-2 w-full" size="lg" disabled={isPending}>
-              {isPending && <LoaderCircleIcon className="animate-spin" />}
+              {isPending && <LoaderCircleIcon className="animate-spin" aria-hidden="true" />}
               {isPending ? "Signing up..." : "Sign up"}
             </Button>
           </div>
-          <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-            <span className="relative z-10 bg-background px-2 text-muted-foreground">Or</span>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <SignInSocialButton
-              provider="github"
-              callbackURL={redirectUrl}
-              disabled={isPending}
-              icon={<SiGithub className="size-4" />}
-            />
-            <SignInSocialButton
-              provider="google"
-              callbackURL={redirectUrl}
-              // disabled={isPending}
-              disabled={true} // TODO disabled just for the preview deployment at https://tanstarter.mugnavo.com
-              icon={<SiGoogle className="size-4" />}
-            />
-          </div>
+          <SocialSignInButtons callbackURL={redirectUrl} disabled={isPending} />
         </div>
       </form>
 
       <div className="text-center text-sm">
         Already have an account?{" "}
         <Link to="/login" className="underline underline-offset-4">
-          Login
+          Log in
         </Link>
       </div>
     </div>

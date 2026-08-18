@@ -84,10 +84,7 @@ export function IntroPage() {
                 <span className="mr-2 hidden text-muted-foreground/70 select-none sm:inline">
                   $
                 </span>
-                {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-                <span className="select-all" onClick={copyToClipboard}>
-                  {cloneCommand}
-                </span>
+                <span className="select-all">{cloneCommand}</span>
               </code>
             </div>
             <button
