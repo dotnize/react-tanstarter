@@ -124,8 +124,8 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 3000,
   },
-  plugins: lazyPlugins(() => [
-    ...(mode === "test"
+  plugins: lazyPlugins(() =>
+    mode === "test"
       ? []
       : [
           devtools({
@@ -134,13 +134,23 @@ export default defineConfig(({ mode }) => ({
           }),
           tanstackStart(),
           // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-          nitro(),
+          nitro({
+            /**
+             * TODO(security): Review production security headers before deployment.
+             *
+             * App-level policies such as CSP, Permissions-Policy, X-Frame-Options /
+             * frame-ancestors, COOP, Referrer-Policy, and X-Content-Type-Options are
+             * intentionally not configured by the TanStarter template (which this project
+             * is based on) because safe values depend on the app's embedding requirements,
+             * browser APIs, integrations, and content.
+             */
+          }),
           viteReact(),
           // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
           babel({
             presets: [reactCompilerPreset()],
           }),
           tailwindcss(),
-        ]),
-  ]),
+        ],
+  ),
 }));
