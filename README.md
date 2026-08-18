@@ -8,13 +8,11 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 pnpm create mugnavo
 ```
 
-- [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
-- TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
+- [React](https://react.dev) + TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-rhea, [`--preset b1au68YWO`](https://ui.shadcn.com/create?preset=b1au68YWO&base=base&template=start&pointer=true))
-- [Vite 8](https://vite.dev) + [Nitro v3](https://nitro.build/)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://better-auth.com/)
-- [Vite Plus](https://viteplus.dev/) + [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
+- [Vite Plus](https://viteplus.dev/) + [Nitro](https://nitro.build/)
 
 > [!TIP]
 > This template is also available as a monorepo, powered by Vite+ and pnpm workspaces. See [mugnavo/tanstarter-monorepo](https://github.com/mugnavo/tanstarter-monorepo).
