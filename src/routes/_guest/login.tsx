@@ -8,6 +8,7 @@ import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
 import { toast } from "#/components/ui/toast.tsx";
+import { env } from "#/env/client.ts";
 import { authClient } from "#/lib/auth/auth-client.ts";
 
 export const Route = createFileRoute("/_guest/login")({
@@ -67,6 +68,7 @@ function LoginForm() {
             </Link>
             <h1 className="text-xl font-bold">Welcome back to Acme Inc.</h1>
           </div>
+          <DeleteMeDemoAccount />
           <div className="flex flex-col gap-5">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
@@ -122,6 +124,30 @@ function LoginForm() {
           Sign up
         </Link>
       </div>
+    </div>
+  );
+}
+
+/**
+ * TODO: Delete this.
+ * Demo credentials for the live deployment of the TanStarter template on which this project is based.
+ */
+function DeleteMeDemoAccount() {
+  if (new URL(env.VITE_BASE_URL).origin !== "https://tanstarter.mugnavo.com") return null;
+
+  return (
+    <div className="rounded-md border border-dashed bg-muted/50 p-3 text-sm">
+      <p className="text-xs text-muted-foreground">Demo account credentials</p>
+      <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
+        <dt className="text-muted-foreground">Email</dt>
+        <dd>
+          <code className="select-all">demo@mugnavo.com</code>
+        </dd>
+        <dt className="text-muted-foreground">Password</dt>
+        <dd>
+          <code className="select-all">demo1234</code>
+        </dd>
+      </dl>
     </div>
   );
 }
