@@ -23,10 +23,12 @@ export const Route = createFileRoute("/_auth")({
      * where auth is required, e.g. for API routes and server functions.
      * see `/lib/auth/middleware.ts`
      */
-    const user = await context.queryClient.ensureQueryData({
+    const user = await context.queryClient.query({
       ...authQueryOptions(),
-      revalidateIfStale: true,
+      staleTime: "static",
     });
+    void context.queryClient.query(authQueryOptions());
+
     if (!user) {
       throw redirect({ to: "/login" });
     }

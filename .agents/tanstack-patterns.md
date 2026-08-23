@@ -25,7 +25,7 @@ export const todosQueryOptions = () =>
   });
 
 // Route loader
-loader: ({ context }) => context.queryClient.ensureQueryData(todosQueryOptions());
+loader: ({ context }) => context.queryClient.query(todosQueryOptions());
 
 // Route component
 const { data: todos } = useSuspenseQuery(todosQueryOptions());
@@ -35,16 +35,35 @@ Use `beforeLoad` only when query data affects routing, such as an auth redirect.
 
 ### Freshness and Navigation
 
-`ensureQueryData` behaves as follows:
+`queryClient.query` uses `staleTime` to decide whether to fetch:
 
 - Missing cache: fetch and wait.
 - Fresh cache: return it immediately.
-- Stale cache: return it immediately without refetching by default.
-- `revalidateIfStale: true`: return stale data immediately and refetch it in the background.
+- Stale cache: fetch and wait.
+- `staleTime: "static"`: return any cached data immediately, even when stale. Fetch and wait only when the cache is empty.
 
-Choose `staleTime` per query. Allow stale data when faster navigation and fewer server/database requests matter more than immediate freshness. Add `revalidateIfStale: true` when stale data may render or drive a route decision but should refresh without blocking navigation.
+Most route loaders can safely use stale cached data to avoid blocking navigation, so prefer returning cached data first. Read with `staleTime: "static"`, then revalidate using the query's normal/default `staleTime`:
 
-Use `prefetchQuery` without awaiting it for non-critical data. Use `ensureQueryData` for data required before rendering or making a route decision.
+```typescript
+// in a route loader/beforeLoad
+const todos = await context.queryClient.query({
+  ...todosQueryOptions(),
+  staleTime: "static",
+});
+void context.queryClient.query(todosQueryOptions());
+// ^ similar to the deprecated ensureQueryData({ revalidateIfStale: true }) behavior
+```
+
+The static read unblocks navigation with cached data. The unawaited call refreshes it in the background when stale.
+
+Use `query` without awaiting it to prefetch non-critical data. Await `query` when data is required before rendering or making a route decision.
+
+```typescript
+import { noop } from "@tanstack/react-query";
+
+// prefetch in a route loader/beforeLoad
+void context.queryClient.query(todosQueryOptions()).catch(noop);
+```
 
 Never use cached route data as a security decision. Fresh authorization and destructive-operation checks belong in the server function or its middleware.
 

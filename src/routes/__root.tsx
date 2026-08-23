@@ -14,7 +14,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   // Typically we don't need the user immediately in landing pages.
   // For protected routes, see /_auth/route.tsx
   // beforeLoad: ({ context }) => {
-  //   context.queryClient.prefetchQuery(authQueryOptions());
+  //   void context.queryClient.query(authQueryOptions()).catch(noop);
   // },
   head: () => ({
     meta: [
