@@ -2,108 +2,109 @@
 
 ## Route Group Conventions
 
-- Protected routes live under `src/routes/_auth/**`, enforced by `beforeLoad` in the `_auth` layout (`src/routes/_auth/route.tsx`).
-- Guest-only routes live under `src/routes/_guest/**`, enforced by `beforeLoad` in the `_guest` layout (`src/routes/_guest/route.tsx`).
-- Auth-specific route guard behavior and middleware rules are documented in `.agents/auth.md`.
+- Protected routes live under `src/routes/_auth/**`, enforced by `beforeLoad` in `src/routes/_auth/route.tsx`.
+- Guest-only routes live under `src/routes/_guest/**`, enforced by `beforeLoad` in `src/routes/_guest/route.tsx`.
+- Auth-specific route guard and middleware rules are documented in `.agents/auth.md`.
 
-## Data Fetching
+## Router and Query Responsibilities
 
-TanStack Query is the client cache and source of truth for server-owned or server-derived data. Router owns params, search state, redirects, and other route decisions.
+TanStack Query is the source of truth for server-owned data. TanStack Router owns params, validated search state, redirects, and route lifecycle.
 
-- Define reusable `queryOptions` factories. The `queryFn` should call a Start server function and forward its `signal`.
-- Use the same options with loaders, `beforeLoad`, `useQuery`/`useSuspenseQuery`, and cache updates.
-- Do not return query data from a loader for components to read with `useLoaderData`; warm the Query cache, then subscribe to it in the component.
-- Loaders and `beforeLoad` may return URL-derived or routing-only values; do not use them as a second cache for server data.
+- Define reusable `queryOptions` factories and use the same options in loaders, `beforeLoad`, components, and cache updates.
+- Include every `queryFn` input in its `queryKey`. Use `loaderDeps` for validated search values that affect a loader, returning only the relevant values.
+- Default non-critical app data to component hooks: use `useQuery` with local pending/error UI, or `useSuspenseQuery` with a deliberate pending boundary.
+- For navigation-critical data needed before rendering, warm the Query cache in a loader, then subscribe from the component. Do not read query data with `useLoaderData`.
+- Loaders and `beforeLoad` may return routing-only values; do not mirror Query-owned server data into Router context or loader data.
+- Keep `defaultPreload: "intent"` to preload route component bundles. Because router preloading may also run loaders and `beforeLoad`, keep non-critical data in component hooks so link intent does not trigger unnecessary data fetching.
+- When Query owns freshness, keep `defaultPreloadStaleTime: 0` in the Router config so preload events reach the loader and Query decides whether to fetch.
 
-Route loaders are isomorphic; they run on both server and client. Keep database, filesystem, secrets, and other server-only access behind a server function.
-
-```typescript
+```tsx
 export const todosQueryOptions = () =>
   queryOptions({
     queryKey: ["todos"],
     queryFn: ({ signal }) => $getTodos({ signal }),
   });
 
-// Route loader
-loader: ({ context }) => context.queryClient.query(todosQueryOptions());
+// Preferred default: fetch in the component and render its pending state.
+function Todos() {
+  const todosQuery = useQuery(todosQueryOptions());
 
-// Route component
-const { data: todos } = useSuspenseQuery(todosQueryOptions());
+  if (todosQuery.isPending) return <TodosSkeleton />;
+  if (todosQuery.isError) return <TodosError />;
+
+  return <TodoList todos={todosQuery.data} />;
+}
+
+// Exception: await navigation-critical data without returning it from the loader.
+loader: async ({ context }) => {
+  await context.queryClient.query(todosQueryOptions());
+},
 ```
 
-Use `beforeLoad` only when query data affects routing, such as an auth redirect. Follow `src/routes/_auth/route.tsx`; route guards should read `authQueryOptions()` through `context.queryClient` rather than copy user data into router context.
+Use `beforeLoad` only when data affects routing, such as an auth redirect. It runs serially before matched loaders, while loaders can run in parallel. Follow `src/routes/_auth/route.tsx` for the protected-layout pattern; keep cached user data in Query rather than Router context.
 
-### Freshness and Navigation
+Route loaders are isomorphic. Keep database, filesystem, secrets, and other server-only work behind a Start server function, and forward the Query `signal` to it.
 
-`queryClient.query` uses `staleTime` to decide whether to fetch:
+## `queryClient.query`
+
+`queryClient.query` is the imperative, non-reactive API for loaders, `beforeLoad`, and callbacks. Components must use Query hooks to subscribe to cache updates.
+
+It uses the effective `staleTime` as follows:
 
 - Missing cache: fetch and wait.
-- Fresh cache: return it immediately.
-- Stale cache: fetch and wait.
-- `staleTime: "static"`: return any cached data immediately, even when stale. Fetch and wait only when the cache is empty.
+- Fresh cache: return cached data.
+- Stale or invalidated cache: fetch and wait.
+- `staleTime: "static"`: return cached data even if invalidated/stale; fetch only when data is missing.
 
-Most route loaders can safely use stale cached data to avoid blocking navigation, so prefer returning cached data first. Read with `staleTime: "static"`, then revalidate using the query's normal/default `staleTime`:
+It also applies an options-level `select` before returning.
 
-```typescript
-// in a route loader/beforeLoad
-const todos = await context.queryClient.query({
-  ...todosQueryOptions(),
-  staleTime: "static",
-});
-void context.queryClient.query(todosQueryOptions());
-// ^ similar to the deprecated ensureQueryData({ revalidateIfStale: true }) behavior
-```
+Await queries required before rendering or routing; their failures reach the route error boundary. For best-effort background work, use `void queryClient.query(options).catch(noop)` because `query` does not swallow errors.
 
-The static read unblocks navigation with cached data. The unawaited call refreshes it in the background when stale.
+### Stale While Revalidate
 
-Use `query` without awaiting it to prefetch non-critical data. Await `query` when data is required before rendering or making a route decision.
+To unblock navigation with cached data and then revalidate using the query's normal `staleTime`:
 
 ```typescript
 import { noop } from "@tanstack/react-query";
 
-// prefetch in a route loader/beforeLoad
-void context.queryClient.query(todosQueryOptions()).catch(noop);
+loader: async ({ context }) => {
+  await context.queryClient.query({
+    ...todosQueryOptions(),
+    staleTime: "static",
+  });
+  void context.queryClient.query(todosQueryOptions()).catch(noop);
+},
 ```
 
-Never use cached route data as a security decision. Fresh authorization and destructive-operation checks belong in the server function or its middleware.
+Keep `staleTime: "static"` as a call-site override. Putting it in the reusable options would also prevent the second call from revalidating.
+
+This is the `queryClient.query` equivalent of the deprecated `ensureQueryData({ revalidateIfStale: true })` behavior:
+
+| Deprecated call                                            | Replacement                                                       |
+| ---------------------------------------------------------- | ----------------------------------------------------------------- |
+| `fetchQuery(options)`                                      | `query(options)`                                                  |
+| `prefetchQuery(options)`                                   | `query(options).catch(noop)`                                      |
+| `ensureQueryData(options)`                                 | `query({ ...options, staleTime: "static" })`                      |
+| `ensureQueryData({ ...options, revalidateIfStale: true })` | Await a static read, then call `void query(options).catch(noop)`. |
+
+Never use cached route data as a security decision. Authorization and destructive-operation checks belong in the server function or its middleware.
 
 ## Mutations
 
-Use TanStack Query's `useMutation` with Start server functions. Prefer a single-round-trip mutation: return the canonical affected data, then write it to every exact cache that can be updated safely. Do not issue a follow-up read by default.
+- Use `useMutation` with Start server functions. Prefer one round trip: return canonical affected data and write it to every exact cache that can be updated safely instead of issuing a follow-up read.
+- Update caches immutably from the canonical server response, not assumptions about what the server stored.
+- Invalidate only affected caches that cannot be reconstructed safely, such as aggregates or lists whose membership or order may change. Avoid broad invalidation and automatic refetching after every mutation.
+- Use `router.invalidate()` only when route guards, redirects, or other route logic must rerun; await `router.invalidate({ sync: true })` when the next step depends on completion.
+- An `onSuccess` cache write is response-driven, not optimistic. Use `onMutate` optimistic updates only for reversible, predictable changes: cancel matching queries, snapshot and update the cache, roll back on error, then reconcile with the server result.
+- Do not optimistically apply destructive or security-sensitive mutations, server-generated identities, or complex multi-entity side effects.
 
-```typescript
-const updateTodo = useMutation({
-  mutationFn: $updateTodo,
-  onSuccess: (updated) => {
-    queryClient.setQueryData(todoQueryOptions(updated.id).queryKey, updated);
-    queryClient.setQueryData(todosQueryOptions().queryKey, (current) =>
-      current?.map((todo) => (todo.id === updated.id ? updated : todo)),
-    );
-  },
-});
-```
+## serverFn Auth
 
-- Update caches immutably from the server result, not from assumptions about what the server stored.
-- Invalidate only affected caches that cannot be reconstructed safely, such as aggregates, permission-dependent data, or lists whose membership/order may change.
-- Avoid broad invalidation and automatic refetch-after-every-write.
-- Use `router.invalidate()` only when route guards, redirects, or other route logic must rerun. It is not the default way to refresh query-backed data.
-
-### True Optimistic Updates
-
-An `onSuccess` cache write is response-driven, not optimistic. Use a true `onMutate` update only when the action is reversible, the cache transformation is predictable, and latency materially affects the interaction.
-
-In `onMutate`, cancel matching queries, snapshot previous data, and update the cache. Roll back in `onError`, then reconcile with the server result or targeted invalidation.
-
-Do not optimistically apply destructive or security-sensitive mutations, server-generated identities, or complex multi-entity side effects. Wait for server confirmation, then update or remove cached data.
-
-## Auth and Security Boundaries
-
-- `_auth` `beforeLoad` caching improves navigation UX; treat every protected server function as an independently callable API endpoint.
-- Use `authMiddleware` from `src/lib/auth/middleware.ts` when cached session state is acceptable; use `freshAuthMiddleware` for destructive or security-sensitive mutations.
-- Always perform authorization and resource-access checks on the server.
-- See `.agents/auth.md` for additional auth middleware, route guard, and session/cookie conventions.
+Prefer `authMiddleware` by default for most cases where cached session state is acceptable; use `freshAuthMiddleware` for destructive or security-sensitive operations that require fresh session state.
 
 ## Server Boundaries
 
-- Import `createServerFn` wrappers statically anywhere; never dynamically import them. Prefix their names with `$` (for example, `$getUser`).
-- Guard server-only logic with a handler, `createServerOnlyFn`, `*.server.*`, or `import "@tanstack/react-start/server-only";`. Module-scope imports are fine behind these boundaries; never run server-only logic in isomorphic module scope.
+- Import `createServerFn` wrappers statically and prefix their names with `$` (for example, `$getUser`).
+- Guard server-only logic with a server-function handler, `createServerOnlyFn`, a `*.server.*` file, or `import "@tanstack/react-start/server-only";`.
+- Read secrets and server environment variables inside a per-request server boundary, never in a loader or at isomorphic module scope.
+- Do not use relative `fetch("/api/...")` calls in isomorphic loaders. Call a Start server function, or construct an absolute URL inside an explicit server boundary when the HTTP boundary is required.
