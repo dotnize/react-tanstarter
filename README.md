@@ -64,7 +64,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
-- [Nitro v3 beta](https://nitro.build/blog/v3-beta) - The template is configured with Nitro v3 beta by default.
+- [Nitro v3 nightly](https://github.com/nitrojs/nitro/releases) - This template is configured with Nitro v3 nightly by default. Consider switching to v3 stable once it's released.
 - [Drizzle ORM v1 RC](https://orm.drizzle.team/docs/relations-v1-v2) - Drizzle ORM v1 is in RC with relations v2.
 - [Vite+ releases](https://github.com/voidzero-dev/vite-plus/releases) - Vite+ is in beta.
 
