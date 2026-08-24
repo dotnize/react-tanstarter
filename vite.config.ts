@@ -1,8 +1,7 @@
-import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
+import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig, lazyPlugins } from "vite-plus";
 
@@ -82,6 +81,9 @@ export default defineConfig(({ mode }) => ({
       },
       { name: "vite-plus", specifier: "vite-plus/oxlint-plugin" },
     ],
+    categories: {
+      correctness: "warn",
+    },
     rules: {
       "vite-plus/prefer-vite-plus-imports": "warn",
 
@@ -90,10 +92,6 @@ export default defineConfig(({ mode }) => ({
       "typescript/no-misused-spread": "off",
 
       "jsx-a11y/prefer-tag-over-role": "off",
-
-      // Experimental:
-      // https://oxc.rs/docs/guide/usage/linter/rules/react/react-compiler.html
-      "react/react-compiler": "warn",
 
       "eslint-tanstack-router/create-route-property-order": "warn",
 
@@ -145,11 +143,7 @@ export default defineConfig(({ mode }) => ({
              * browser APIs, integrations, and content.
              */
           }),
-          viteReact(),
-          // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
-          babel({
-            presets: [reactCompilerPreset()],
-          }),
+          viteReact({ compiler: true }),
           tailwindcss(),
         ],
   ),
