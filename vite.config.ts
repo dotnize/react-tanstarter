@@ -133,6 +133,8 @@ export default defineConfig(({ mode }) => ({
           tanstackStart(),
           // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
           nitro({
+            // FIXME: invalid ssr_exports from build https://github.com/TanStack/router/issues/8031
+            inlineDynamicImports: true,
             /**
              * TODO(security): Review production security headers before deployment.
              *
