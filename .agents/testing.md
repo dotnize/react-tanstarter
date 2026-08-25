@@ -20,7 +20,19 @@ Usually do not test generated route discovery, routine navigation, static markup
 - Prefer real implementations when they are local, fast, deterministic, and side-effect free. Do not add mocks by default.
 - Do not use snapshots or add tests solely to increase coverage.
 
-Routine tests must not call third-party services. Keep external access behind a narrow boundary and use local provider fixtures when a critical integration requires representative data. For billing, test owned calculations and webhook handling locally; reserve the provider's official sandbox for a separate, explicitly invoked integration path.
+## Third-Party Integrations
+
+Default test commands must not call remote third-party services. They may use disposable owned dependencies and provider fakes running on localhost. Exercise owned integration behavior through the real application boundary with representative fixtures or a local fake instead of mocking internal implementation details. Sanitize provider-derived fixtures before committing them; never include secrets, payment details, or personal data.
+
+A small, separately invoked sandbox integration suite may call a provider's official test environment when that proves behavior that cannot be established locally, such as authentication, SDK compatibility, hosted flows, webhook delivery, or provider configuration. Sandbox tests must:
+
+- use only sandbox-scoped credentials and resources, never production;
+- isolate their data and clean up when the provider supports it;
+- account for rate limits and run serially when shared provider state makes parallel execution unsafe;
+- stay focused on representative compatibility and smoke paths while deterministic state permutations remain local;
+- remain outside routine pull-request checks unless they are demonstrably reliable.
+
+Test application-owned integration behavior locally, including calculations, external event validation and handling (e.g., webhooks and callbacks), lifecycle boundaries, idempotency, and user-visible states. Reserve an external service's official sandbox for the explicit integration path.
 
 ## Conventions and Commands
 
