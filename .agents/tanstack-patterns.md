@@ -13,12 +13,16 @@ TanStack Query is the source of truth for server-owned data. TanStack Router own
 - Define reusable `queryOptions` factories and use the same options in loaders, `beforeLoad`, components, and cache updates.
 - Include every `queryFn` input in its `queryKey`. Use `loaderDeps` for validated search values that affect a loader, returning only the relevant values.
 - Default non-critical app data to component hooks: use `useQuery` with local pending/error UI, or `useSuspenseQuery` with a deliberate pending boundary.
-- For navigation-critical data needed before rendering, warm the Query cache in a loader, then subscribe from the component. Do not read query data with `useLoaderData`.
+- As a narrow performance exception, kick off the primary query for a route in its loader without blocking navigation when the route is likely to be revisited often or directly supports a core, high-value user outcome. Keep secondary and supporting queries in component hooks.
+- Prefer loaders for this warming. Use `beforeLoad` only when there is a concrete reason to begin before matched loaders; never await best-effort warming in `beforeLoad`.
+- For the rare case where data is required before rendering, await its query in a loader, then subscribe from the component. Do not read Query-owned data with `useLoaderData`.
 - Loaders and `beforeLoad` may return routing-only values; do not mirror Query-owned server data into Router context or loader data.
 - Keep `defaultPreload: "intent"` to preload route component bundles. Because router preloading may also run loaders and `beforeLoad`, keep non-critical data in component hooks so link intent does not trigger unnecessary data fetching.
 - When Query owns freshness, keep `defaultPreloadStaleTime: 0` in the Router config so preload events reach the loader and Query decides whether to fetch.
 
 ```tsx
+import { noop, queryOptions, useQuery } from "@tanstack/react-query";
+
 export const todosQueryOptions = () =>
   queryOptions({
     queryKey: ["todos"],
@@ -35,13 +39,26 @@ function Todos() {
   return <TodoList todos={todosQuery.data} />;
 }
 
+// Narrow exception: warm primary data without delaying navigation.
+loader: ({ context }) => {
+  void context.queryClient.query(todosQueryOptions()).catch(noop);
+},
+
 // Exception: await navigation-critical data without returning it from the loader.
 loader: async ({ context }) => {
   await context.queryClient.query(todosQueryOptions());
 },
 ```
 
-Use `beforeLoad` only when data affects routing, such as an auth redirect. It runs serially before matched loaders, while loaders can run in parallel. Follow `src/routes/_auth/route.tsx` for the protected-layout pattern; keep cached user data in Query rather than Router context.
+Treat non-blocking route warming as a limited performance budget. Use it only when all of these are true:
+
+- There is a strong product reason or usage data suggesting frequent visits, or the route directly supports a core, high-value outcome.
+- The query powers the primary initial view rather than secondary panels, tabs, or speculative follow-up data.
+- Starting the request on preload or navigation is expected to materially improve perceived latency enough to justify an occasional unused request.
+
+The component hook still owns pending, error, and rendered states. A warming failure must not fail navigation; the hook may retry according to its normal policy.
+
+`beforeLoad` is primarily for data that affects routing, such as an auth redirect. If the rare warming exception above must begin there, kick off the query without awaiting it. `beforeLoad` runs serially before matched loaders, while loaders can run in parallel. Follow `src/routes/_auth/route.tsx` for the protected-layout pattern; keep cached user data in Query rather than Router context.
 
 Route loaders are isomorphic. Keep database, filesystem, secrets, and other server-only work behind a Start server function, and forward the Query `signal` to it.
 
