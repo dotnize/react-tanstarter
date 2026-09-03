@@ -1,10 +1,4 @@
-# TanStack Patterns
-
-## Route Group Conventions
-
-- Protected routes live under `src/routes/_auth/**`, enforced by `beforeLoad` in `src/routes/_auth/route.tsx`.
-- Guest-only routes live under `src/routes/_guest/**`, enforced by `beforeLoad` in `src/routes/_guest/route.tsx`.
-- Auth-specific route guard and middleware rules are documented in `.agents/auth.md`.
+# Data Flow
 
 ## Router and Query Responsibilities
 
@@ -13,6 +7,7 @@ TanStack Query is the source of truth for server-owned data. TanStack Router own
 - Define reusable `queryOptions` factories and use the same options in loaders, `beforeLoad`, components, and cache updates.
 - Include every `queryFn` input in its `queryKey`. Use `loaderDeps` for validated search values that affect a loader, returning only the relevant values.
 - Default non-critical app data to component hooks: use `useQuery` with local pending/error UI, or `useSuspenseQuery` with a deliberate pending boundary.
+- For nested routes, keep persistent layout UI outside the child pending boundary. Place a content-only `Suspense` boundary around the layout's `<Outlet />`, or define `pendingComponent` on each child route, so child loading does not replace the parent shell.
 - As a narrow performance exception, kick off the primary query for a route in its loader without blocking navigation when the route is likely to be revisited often or directly supports a core, high-value user outcome. Keep secondary and supporting queries in component hooks.
 - Prefer loaders for this warming. Use `beforeLoad` only when there is a concrete reason to begin before matched loaders; never await best-effort warming in `beforeLoad`.
 - For the rare case where data is required before rendering, await its query in a loader, then subscribe from the component. Do not read Query-owned data with `useLoaderData`.
@@ -114,10 +109,6 @@ Never use cached route data as a security decision. Authorization and destructiv
 - Use `router.invalidate()` only when route guards, redirects, or other route logic must rerun; await `router.invalidate({ sync: true })` when the next step depends on completion.
 - An `onSuccess` cache write is response-driven, not optimistic. Use `onMutate` optimistic updates only for reversible, predictable changes: cancel matching queries, snapshot and update the cache, roll back on error, then reconcile with the server result.
 - Do not optimistically apply destructive or security-sensitive mutations, server-generated identities, or complex multi-entity side effects.
-
-## serverFn Auth
-
-Prefer `authMiddleware` by default for most cases where cached session state is acceptable; use `freshAuthMiddleware` for destructive or security-sensitive operations that require fresh session state.
 
 ## Server Boundaries
 

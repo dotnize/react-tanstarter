@@ -23,7 +23,7 @@
 
 ## Topic-specific Guidelines
 
-- [TanStack patterns](.agents/tanstack-patterns.md) - Routing, data fetching/mutations, loaders, server functions, environment shaking. For TanStack Query, Router, and Start
+- [Data flow](.agents/data-flow.md) - TanStack Start/Router + Query data loading, cache behavior, mutations, and server boundaries
 - [Auth patterns](.agents/auth.md) - Route guards, middleware, auth utilities
 - [Database conventions](.agents/database.md) - Drizzle column types and generated Better Auth schema ownership
 - [Testing](.agents/testing.md) - What to test, Vitest/Playwright boundaries, commands
