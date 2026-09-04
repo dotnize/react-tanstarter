@@ -34,6 +34,13 @@ A small, separately invoked sandbox integration suite may call a provider's offi
 
 Test application-owned integration behavior locally, including calculations, external event validation and handling (e.g., webhooks and callbacks), lifecycle boundaries, idempotency, and user-visible states. Reserve an external service's official sandbox for the explicit integration path.
 
+## Local Test Database
+
+- Prefer the PostgreSQL service declared in `docker-compose.yml` over a system PostgreSQL installation. Confirm the underlying Docker or Podman engine works; a Compose wrapper alone is not sufficient.
+- For finite integration or E2E runs, start only the PostgreSQL service. Check whether it was already running, and stop it afterward only if the current testing session started it.
+- When Playwright targets a different database from the Compose default, create it once inside the container using the configured database user, then apply existing migrations with the test `DATABASE_URL` before running tests.
+- Fall back to system PostgreSQL only when no usable Compose engine or database service is available.
+
 ## Conventions and Commands
 
 - Colocate Vitest tests with source code as `*.test.ts` or `*.test.tsx`. Put Playwright tests under `e2e/` as `*.spec.ts`. Do not create a `__tests__` directory unless a feature has enough test-only files to justify grouping them.
