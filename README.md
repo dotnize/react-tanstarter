@@ -33,7 +33,11 @@ pnpm create mugnavo
    pnpm create mugnavo
    ```
 
-2. Create a `.env` file based on [`.env.example`](./.env.example).
+2. Create a `.env.local` file with your values, based on [`.env.schema`](./.env.schema), then validate them:
+
+   ```sh
+   vpr env:load
+   ```
 
 3. Generate the initial migration with drizzle-kit, then apply to your database:
 
@@ -51,6 +55,12 @@ pnpm create mugnavo
    ```
 
    The development server should now be running at [http://localhost:3000](http://localhost:3000).
+
+## Environment variables
+
+[Varlock](https://varlock.dev/) keeps the environment-variable contract in `.env.schema` and generates types from it. Put local values, including secrets, in the uncommitted `.env.local`, then run `vpr env:load` to validate them.
+
+In application code, `import { ENV } from "varlock/env"` instead of reading `process.env` directly.
 
 ## Deploying to production
 

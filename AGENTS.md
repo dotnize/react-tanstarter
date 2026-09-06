@@ -8,6 +8,7 @@
 - Keep UI copy user-centered: describe outcomes and next actions concisely without exposing providers, internal states, or implementation details.
 - Don't run a standalone build after every little change. Use `vpr lint` as the baseline and run the narrowest relevant tests described in the testing guidelines; `vpr test:e2e` performs its own production build.
 - For running scripts, use `vpr`, which is a shorthand for `vp run`.
+- Treat `.env.schema` as the environment-variable source of truth. In application code, import `ENV` from `varlock/env` instead of reading `process.env` directly. Never read local env files; validate safely with `vp exec varlock load --agent`.
 
 ## Code style
 

@@ -1,9 +1,9 @@
 import { SiGithub, SiGoogle } from "@icons-pack/react-simple-icons";
 import { useMutation } from "@tanstack/react-query";
+import { ENV } from "varlock/env";
 
 import { Button } from "#/components/ui/button.tsx";
 import { toast } from "#/components/ui/toast.tsx";
-import { env } from "#/env/client.ts";
 import { authClient } from "#/lib/auth/auth-client.ts";
 
 interface SocialLoginButtonProps {
@@ -58,7 +58,7 @@ export function SocialSignInButtons({
 }: Pick<SocialLoginButtonProps, "callbackURL" | "disabled">) {
   // TODO: Remove this. This is just for the demo deployment of TanStarter, which this project is based on.
   const isPreviewDeployment =
-    new URL(env.VITE_BASE_URL).origin === "https://tanstarter.mugnavo.com";
+    new URL(ENV.VITE_BASE_URL).origin === "https://tanstarter.mugnavo.com";
 
   return (
     <>
