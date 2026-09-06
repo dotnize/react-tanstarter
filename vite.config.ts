@@ -135,6 +135,7 @@ export default defineConfig(({ mode }) => ({
             // https://tanstack.com/devtools/latest/docs/vite-plugin#console-piping
             consolePiping: { enabled: false },
           }),
+          // https://varlock.dev/integrations/tanstack-start/
           varlockVitePlugin(),
           tanstackStart(),
           // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
