@@ -12,7 +12,6 @@ pnpm create mugnavo
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-rhea, [`--preset b1au68YWO`](https://ui.shadcn.com/create?preset=b1au68YWO&base=base&template=start&pointer=true))
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://better-auth.com/)
-- [Varlock](https://varlock.dev/)
 - [Vite Plus](https://viteplus.dev/) + [Nitro](https://nitro.build/)
 
 > [!TIP]
@@ -56,6 +55,12 @@ pnpm create mugnavo
    ```
 
    The development server should now be running at [http://localhost:3000](http://localhost:3000).
+
+## Environment variables
+
+[Varlock](https://varlock.dev/) keeps the environment-variable contract in `.env.schema` and generates types from it. Put local values, including secrets, in the uncommitted `.env.local`, then run `vpr env:load` to validate them.
+
+In application code, `import { ENV } from "varlock/env"` instead of reading `process.env` directly.
 
 ## Deploying to production
 
