@@ -34,11 +34,10 @@ pnpm create mugnavo
    pnpm create mugnavo
    ```
 
-2. Add your local values to `.env.local`, using [`.env.schema`](./.env.schema) as the
-   source of truth, then validate them:
+2. Create a `.env.local` file with your values, based on [`.env.schema`](./.env.schema), then validate them:
 
    ```sh
-   vp exec varlock load
+   vpr env:load
    ```
 
 3. Generate the initial migration with drizzle-kit, then apply to your database:
