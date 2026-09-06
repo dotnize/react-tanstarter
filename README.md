@@ -12,6 +12,7 @@ pnpm create mugnavo
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-rhea, [`--preset b1au68YWO`](https://ui.shadcn.com/create?preset=b1au68YWO&base=base&template=start&pointer=true))
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://better-auth.com/)
+- [Varlock](https://varlock.dev/)
 - [Vite Plus](https://viteplus.dev/) + [Nitro](https://nitro.build/)
 
 > [!TIP]
@@ -33,7 +34,12 @@ pnpm create mugnavo
    pnpm create mugnavo
    ```
 
-2. Create a `.env` file based on [`.env.example`](./.env.example).
+2. Add your local values to `.env.local`, using [`.env.schema`](./.env.schema) as the
+   source of truth, then validate them:
+
+   ```sh
+   vp exec varlock load
+   ```
 
 3. Generate the initial migration with drizzle-kit, then apply to your database:
 

@@ -1,6 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { varlockVitePlugin } from "@varlock/vite-integration";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig, lazyPlugins } from "vite-plus";
@@ -40,6 +41,7 @@ export default defineConfig(({ mode }) => ({
       "package-lock.json",
       "yarn.lock",
       "bun.lock",
+      ".agents/skills/",
       "routeTree.gen.ts",
       ".tanstack-start/",
       ".tanstack/",
@@ -53,6 +55,7 @@ export default defineConfig(({ mode }) => ({
       ".wrangler",
       ".netlify",
       "dist",
+      "env.d.ts",
     ],
   },
 
@@ -112,6 +115,8 @@ export default defineConfig(({ mode }) => ({
       "build/",
       "worker-configuration.d.ts",
       "scripts/",
+      ".agents/skills/",
+      "env.d.ts",
     ],
   },
 
@@ -130,6 +135,7 @@ export default defineConfig(({ mode }) => ({
             // https://tanstack.com/devtools/latest/docs/vite-plugin#console-piping
             consolePiping: { enabled: false },
           }),
+          varlockVitePlugin(),
           tanstackStart(),
           // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
           nitro({

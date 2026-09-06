@@ -1,13 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LoaderCircleIcon } from "lucide-react";
+import { ENV } from "varlock/env";
 
 import { SocialSignInButtons } from "#/components/sign-in-social-buttons.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
 import { toast } from "#/components/ui/toast.tsx";
-import { env } from "#/env/client.ts";
 import { authClient } from "#/lib/auth/auth-client.ts";
 
 export const Route = createFileRoute("/_guest/login")({
@@ -112,7 +112,7 @@ function LoginForm() {
  * Demo credentials for the live deployment of the TanStarter template on which this project is based.
  */
 function DeleteMeDemoAccount() {
-  if (new URL(env.VITE_BASE_URL).origin !== "https://tanstarter.mugnavo.com") return null;
+  if (new URL(ENV.VITE_BASE_URL).origin !== "https://tanstarter.mugnavo.com") return null;
 
   return (
     <div className="rounded-md border border-dashed bg-muted/50 p-3 text-sm">

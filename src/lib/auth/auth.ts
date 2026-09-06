@@ -2,13 +2,13 @@ import "@tanstack/react-start/server-only";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
+import { ENV } from "varlock/env";
 
-import { env } from "#/env/server.ts";
 import { db } from "#/lib/db/index.ts";
 import * as schema from "#/lib/db/schema/index.ts";
 
 export const auth = betterAuth({
-  baseURL: env.VITE_BASE_URL,
+  baseURL: ENV.VITE_BASE_URL,
   telemetry: {
     enabled: false,
   },
@@ -31,12 +31,12 @@ export const auth = betterAuth({
   // https://better-auth.com/docs/concepts/oauth
   socialProviders: {
     github: {
-      clientId: env.GITHUB_CLIENT_ID!,
-      clientSecret: env.GITHUB_CLIENT_SECRET!,
+      clientId: ENV.GITHUB_CLIENT_ID!,
+      clientSecret: ENV.GITHUB_CLIENT_SECRET!,
     },
     google: {
-      clientId: env.GOOGLE_CLIENT_ID!,
-      clientSecret: env.GOOGLE_CLIENT_SECRET!,
+      clientId: ENV.GOOGLE_CLIENT_ID!,
+      clientSecret: ENV.GOOGLE_CLIENT_SECRET!,
     },
   },
 

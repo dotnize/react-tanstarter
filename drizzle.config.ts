@@ -1,6 +1,5 @@
 import type { Config } from "drizzle-kit";
-
-import { env } from "#/env/server.js";
+import { ENV } from "varlock/env";
 
 export default {
   out: "./drizzle",
@@ -11,6 +10,6 @@ export default {
 
   dialect: "postgresql",
   dbCredentials: {
-    url: env.DATABASE_URL,
+    url: ENV.DATABASE_URL,
   },
 } satisfies Config;
