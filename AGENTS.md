@@ -12,14 +12,12 @@
 
 ## Code style
 
-- Do not introduce abstractions, generic utilities, or extensibility without a concrete need.
-- Avoid unnecessary indirection and wrapper layers that only rename or forward calls.
-- Prefer cohesive, readable functions over excessive fragmentation; extract helpers when they meaningfully improve readability, reuse, or testability.
+- Prefer straightforward solutions for current requirements. Introduce abstractions, generic utilities, extensibility, or architectural layers only when there is a concrete need.
+- Keep the main control flow easy to follow. Avoid wrapper layers that merely rename or forward calls and fragmentation that creates unnecessary jumps between files or functions.
+- Extract helpers only when they meaningfully improve readability, reuse, or testability.
 - Keep types simple and close to where they are used. Prefer inference and avoid type gymnastics unless necessary.
-- Follow existing abstractions; do not add new architectural layers without a concrete need.
-- Minimize indirection: keep the main control flow easy to follow without unnecessary jumps across too many files/functions.
-- Be robust at system boundaries such as user input, auth, external APIs, and persistence; avoid redundant defensive code where internal invariants are already enforced.
-- Do not sacrifice security, correctness, or meaningful edge-case handling for brevity.
+- Be robust at system boundaries such as user input, auth, external APIs, and persistence. Within trusted boundaries, rely on established invariants instead of guarding against hypothetical states.
+- Handle edge cases in proportion to their likelihood and impact. Avoid adding complexity for contrived, extremely unlikely, low-impact scenarios outside normal supported use, while preserving applicable security and data-integrity requirements.
 - Add concise comments only for non-obvious intent, unusual edge cases, and important constraints. Briefly explain why, not what.
 
 ## Topic-specific Guidelines

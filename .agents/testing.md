@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Tests are a fast validation layer for behavior that is difficult or risky to verify by reading alone. Keep test effort proportional to business risk; there is no coverage target.
+Tests are a fast validation layer for behavior that is difficult or risky to verify by reading alone. Keep test effort proportional to business risk; there is no coverage target. Prefer a small, high-signal suite, and add tests only when they protect meaningful behavior or reduce credible regression risk. Do not test trivial, impractical, or low-impact paths merely for completeness.
 
 ## What to Test
 
