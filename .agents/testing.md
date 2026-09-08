@@ -47,7 +47,7 @@ Test application-owned integration behavior locally, including calculations, ext
 - Import Vitest APIs from `vite-plus/test`.
 - `vpr test`: Run all Vitest unit and local integration tests once.
 - `vpr test watch`: Run the Vitest suite in watch mode.
-- `vp exec playwright install chromium`: Install the E2E browser once per machine.
+- `vpx playwright install chromium`: Install the E2E browser once per machine.
 - `vpr test:e2e`: Build the app and run its E2E suite against the built production server.
 
 Playwright must exercise built production output so the E2E path validates the deployable artifact, including production bundling and server/client boundaries. The Playwright configuration owns its build and server lifecycle; do not run a separate build first or reuse a development server. Use a targeted Playwright spec when iterating if the full E2E suite becomes slow.

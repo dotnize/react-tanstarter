@@ -33,6 +33,7 @@ export default defineConfig({
     },
     url: baseURL,
     reuseExistingServer: false,
+    gracefulShutdown: { signal: "SIGTERM", timeout: 500 },
     timeout: 120_000,
   },
 });
